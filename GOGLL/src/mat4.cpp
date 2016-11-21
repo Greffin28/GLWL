@@ -20,7 +20,7 @@ namespace gogll {
 	mat4 mat4::rotation(char axis, float angle) {
 		mat4 mat;
 
-		angle = angle * 3.14f / 180.0f;
+		angle = angle * PI / 180.0f;
 
 		if (axis == 'Z' || axis == 'z') {
 			mat.setValue(0 + 0 * 4, cos(angle));
@@ -38,6 +38,30 @@ namespace gogll {
 			mat.setValue(2 + 1 * 4, sin(angle));
 			mat.setValue(2 + 2 * 4, cos(angle));
 		}
+
+		return mat;
+	}
+
+	mat4 mat4::ortho(float l, float t, float r, float b, float n, float f) {
+		mat4 mat;
+
+		mat.setValue(0 + 0 * 4, 2.0f / (r - l));
+		mat.setValue(0 + 3 * 4, -(r + l) / (r - l));
+		mat.setValue(1 + 0 * 4, -2.0f / (b - t));
+		mat.setValue(1 + 3 * 4, (b + t) / (b - t));
+		mat.setValue(2 + 0 * 4, 2.0f / (f - n));
+		mat.setValue(2 + 3 * 4, -(f + n) / (f - b));
+
+		return mat;
+	}
+
+	mat4 mat4::perspective(int width, int height, float fov, float n, float f) {
+		mat4 mat;
+
+		fov = fov * PI / 180.0f;
+		float ratio = 1.0f * width / height;
+
+
 
 		return mat;
 	}
