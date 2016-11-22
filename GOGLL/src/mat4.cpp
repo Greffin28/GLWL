@@ -60,8 +60,21 @@ namespace gogll {
 
 		fov = fov * PI / 180.0f;
 		float ratio = 1.0f * width / height;
+		
+		float halfScreenNear = n * tan(fov / 2.0f);
+		float r = halfScreenNear;
+		float l = -r;
+		float t = halfScreenNear / ratio;
+		float b = -t;
 
-
+		mat.setValue(0 + 0 * 4, 2.0f * n / (r - l));
+		mat.setValue(0 + 2 * 4, -(r + l) / (r - l));
+		mat.setValue(1 + 1 * 4, -2.0f * n / (t - b));
+		mat.setValue(1 + 2 * 4, (t + b) / (t - b));
+		mat.setValue(2 + 2 * 4, (f + n) / (f - n));
+		mat.setValue(2 + 3 * 4, -2.0f * n * f / (f - n));
+		mat.setValue(3 + 3 * 4, 0.0f);
+		mat.setValue(3 + 2 * 4, 1.0f);
 
 		return mat;
 	}
