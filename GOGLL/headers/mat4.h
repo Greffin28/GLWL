@@ -29,6 +29,7 @@ namespace gogll {
 
 		DLLExports void setValue(int i, float val);
 		DLLExports float getValue(int i) const;
+		DLLExports float * getData();
 
 		DLLExports mat4 operator*(const mat4 &lmat);
 		DLLExports void operator*=(const mat4 &lmat);

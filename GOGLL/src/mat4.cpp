@@ -89,6 +89,10 @@ namespace gogll {
 		return values[i];
 	}
 
+	float * mat4::getData() {
+		return values;
+	}
+
 	mat4 mat4::operator*(const mat4 &lmat) {
 		mat4 result;
 		for (int y = 0; y < 4; y++) {
