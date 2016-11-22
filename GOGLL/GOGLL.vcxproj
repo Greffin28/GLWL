@@ -149,9 +149,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="headers\mat4.h" />
+    <ClInclude Include="headers\vec4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\mat4.cpp" />
+    <ClCompile Include="src\vec4.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
