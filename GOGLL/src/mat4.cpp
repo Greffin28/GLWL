@@ -1,4 +1,5 @@
 #include "mat4.h"
+#include "vec4.h"
 
 namespace gogll {
 
@@ -109,5 +110,17 @@ namespace gogll {
 
 	void mat4::operator*=(const mat4 &lmat) {
 		*this = operator*(lmat);
+	}
+
+	vec4 mat4::operator*(const vec4 &lvec) {
+		vec4 result;
+		for (int x = 0; x < 4; x++) {
+			float val = 0;
+			for (int i = 0; i < 4; i++) {
+				val += getValue(x + i * 4) * lvec.getValue(i);
+			}
+			result.setValue(x, val);
+		}
+		return result;
 	}
 }

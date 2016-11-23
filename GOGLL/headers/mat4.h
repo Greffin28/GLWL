@@ -12,6 +12,7 @@
 #define PI 3.1415926535f
 
 namespace gogll {
+	class vec4;
 	class mat4 {
 	private:
 		float values[16] = {
@@ -33,6 +34,7 @@ namespace gogll {
 
 		DLLExports mat4 operator*(const mat4 &lmat);
 		DLLExports void operator*=(const mat4 &lmat);
+		DLLExports vec4 operator*(const vec4 &lmat);
 	};
 }
 
