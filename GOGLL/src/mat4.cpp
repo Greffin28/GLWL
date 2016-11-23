@@ -85,7 +85,7 @@ namespace gogll {
 		values[i] = val;
 	}
 
-	float mat4::getValue(int i) const{
+	float mat4::getValue(int i) {
 		if (i < 0 || i >= 16) return 0.0f;
 		return values[i];
 	}
@@ -94,21 +94,27 @@ namespace gogll {
 		return values;
 	}
 
-	mat4 mat4::operator*(const mat4 &lmat) {
+	mat4 mat4::operator*(mat4 &lmat) {
 		mat4 result;
+
+
 		for (int y = 0; y < 4; y++) {
 			for (int x = 0; x < 4; x++) {
 				float val = 0;
+				float *p1, *p2;
+				p1 = &getData()[x];
+				p2 = &lmat.getData()[y * 4] - 1;
 				for (int i = 0; i < 4; i++) {
-					val += getValue(x + i * 4) * lmat.getValue(i + y * 4);
+					val += *(p1) * *(++p2);
+					p1 += 4;
 				}
 				result.setValue(x + y * 4, val);
 			}
 		}
 		return result;
 	}
-
-	void mat4::operator*=(const mat4 &lmat) {
+	
+	void mat4::operator*=(mat4 &lmat) {
 		*this = operator*(lmat);
 	}
 

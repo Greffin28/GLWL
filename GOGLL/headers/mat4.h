@@ -29,11 +29,11 @@ namespace gogll {
 		DLLExports static mat4 perspective(int width, int height, float fov, float n, float f);
 
 		DLLExports void setValue(int i, float val);
-		DLLExports float getValue(int i) const;
+		DLLExports float getValue(int i);
 		DLLExports float * getData();
 
-		DLLExports mat4 operator*(const mat4 &lmat);
-		DLLExports void operator*=(const mat4 &lmat);
+		DLLExports mat4 operator*(mat4 &lmat);
+		DLLExports void operator*=(mat4 &lmat);
 		DLLExports vec4 operator*(const vec4 &lmat);
 	};
 }
