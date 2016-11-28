@@ -3,5 +3,5 @@ GOGLL.VC.db
 /.vs/
 /Debug/
 /GOGLL/Debug/
-.bat
-.dll
+*.bat
+*.dll
