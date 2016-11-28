@@ -34,7 +34,7 @@ namespace gogll {
 
 		DLLExports mat4 operator*(mat4 &lmat);
 		DLLExports void operator*=(mat4 &lmat);
-		DLLExports vec4 operator*(const vec4 &lmat);
+		DLLExports vec4 operator*(vec4 &lmat);
 	};
 }
 

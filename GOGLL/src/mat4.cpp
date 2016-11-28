@@ -118,12 +118,16 @@ namespace gogll {
 		*this = operator*(lmat);
 	}
 
-	vec4 mat4::operator*(const vec4 &lvec) {
+	vec4 mat4::operator*(vec4 &lvec) {
 		vec4 result;
 		for (int x = 0; x < 4; x++) {
 			float val = 0;
+			float *p1, *p2;
+			p1 = &getData()[x];
+			p2 = lvec.getData() - 1;
 			for (int i = 0; i < 4; i++) {
-				val += getValue(x + i * 4) * lvec.getValue(i);
+				val += *(p1) * *(++p2);
+				p1 += 4;
 			}
 			result.setValue(x, val);
 		}
