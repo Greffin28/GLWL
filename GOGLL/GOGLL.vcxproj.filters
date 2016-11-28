@@ -15,18 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\mat4.cpp">
+    <ClCompile Include="src\math\mat4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\vec4.cpp">
+    <ClCompile Include="src\math\vec4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\mat4.h">
+    <ClInclude Include="headers\math\mat4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\vec4.h">
+    <ClInclude Include="headers\math\vec4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\util\shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

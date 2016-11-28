@@ -1,5 +1,5 @@
-#include "mat4.h"
-#include "vec4.h"
+#include "math\mat4.h"
+#include "math\vec4.h"
 
 namespace gogll {
 
