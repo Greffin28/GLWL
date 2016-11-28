@@ -56,4 +56,13 @@ namespace gogll {
 		}
 	}
 
+	void Shader::setProgramvf() {
+		program = glCreateProgram();
+
+		glAttachShader(program, vShader);
+		glAttachShader(program, fShader);
+		glBindFragDataLocation(program, 0, "outColor");
+		glLinkProgram(program);
+	}
+
 }

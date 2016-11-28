@@ -23,6 +23,7 @@ namespace gogll {
 	public:
 		DLLExports void loadvf(std::string vPath, std::string fPath);
 		DLLExports void compilevf();
+		DLLExports void setProgramvf();
 	};
 }
 
