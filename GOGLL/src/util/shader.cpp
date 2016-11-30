@@ -73,4 +73,15 @@ namespace gogll {
 		glUseProgram(program);
 	}
 
+	Shader::~Shader() {
+		unuseProgram();
+		glDetachShader(program, vShader);
+		glDetachShader(program, fShader);
+
+		glDeleteShader(vShader);
+		glDeleteShader(fShader);
+
+		glDeleteProgram(program);
+	}
+
 }

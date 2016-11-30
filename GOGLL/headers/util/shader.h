@@ -27,6 +27,8 @@ namespace gogll {
 
 		DLLExports static void unuseProgram();
 		DLLExports void useProgram();
+
+		DLLExports ~Shader();
 	};
 }
 
