@@ -16,7 +16,7 @@
 namespace gogll {
 	class Shader {
 	private:
-		int program, vShader, fShader;
+		GLuint program, vShader, fShader;
 
 		std::string vSource, fSource;
 		const GLchar *glvSource, *glfSource;
@@ -24,6 +24,9 @@ namespace gogll {
 		DLLExports void loadvf(std::string vPath, std::string fPath);
 		DLLExports void compilevf();
 		DLLExports void setProgramvf();
+
+		DLLExports static void unuseProgram();
+		DLLExports void useProgram();
 	};
 }
 
