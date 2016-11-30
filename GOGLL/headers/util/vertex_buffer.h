@@ -7,10 +7,16 @@
 #define DLLExports __declspec(dllimport)
 #endif
 
+#include <GL\glew.h>
+
 namespace gogll {
 	class VertexBuffer {
 	private:
+		GLuint vbo, vao;
 	public:
+		DLLExports VertexBuffer();
+
+		DLLExports ~VertexBuffer();
 	};
 }
 
