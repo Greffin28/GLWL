@@ -65,12 +65,12 @@ namespace gogll {
 		glLinkProgram(program);
 	}
 
-	void Shader::unuseProgram() {
-		glUseProgram(0);
-	}
-
 	void Shader::useProgram() {
 		glUseProgram(program);
+	}
+
+	void Shader::unuseProgram() {
+		glUseProgram(0);
 	}
 
 	GLuint Shader::getProgram() {
