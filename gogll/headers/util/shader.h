@@ -25,8 +25,8 @@ namespace gogll {
 		DLLExports void compilevf();
 		DLLExports void setProgramvf();
 
-		DLLExports static void unuseProgram();
 		DLLExports void useProgram();
+		DLLExports static void unuseProgram();
 
 		DLLExports GLuint getProgram();
 
