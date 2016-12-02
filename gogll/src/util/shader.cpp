@@ -73,6 +73,10 @@ namespace gogll {
 		glUseProgram(program);
 	}
 
+	GLuint Shader::getProgram() {
+		return program;
+	}
+
 	Shader::~Shader() {
 		unuseProgram();
 		glDetachShader(program, vShader);
