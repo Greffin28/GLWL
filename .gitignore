@@ -1,7 +1,10 @@
 GOGLL.VC.VC.opendb
 GOGLL.VC.db
+
 /.vs/
 /Debug/
-/GOGLL/Debug/
+/gogll_math/Debug/
+/gogll/Debug/
+
 *.bat
 *.dll
