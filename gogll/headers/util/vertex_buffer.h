@@ -16,6 +16,14 @@ namespace gogll {
 	public:
 		DLLExports VertexBuffer();
 
+		DLLExports void bindVAO();
+		DLLExports void bindVBO(GLenum target);
+		DLLExports static void unbindVAO();
+		DLLExports static void unbindVBO(GLenum target);
+
+		DLLExports GLuint getVAO();
+		DLLExports GLuint getVBO();
+
 		DLLExports ~VertexBuffer();
 	};
 }
