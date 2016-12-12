@@ -10,7 +10,7 @@ namespace gogll {
 		if (in.is_open()) {
 			vSource = "";
 			while (getline(in, line)) {
-				vSource += line;
+				vSource += line + '\n';
 			}
 			in.close();
 		} else {
@@ -21,7 +21,7 @@ namespace gogll {
 		if (in.is_open()) {
 			fSource = "";
 			while (getline(in, line)) {
-				fSource += line;
+				fSource += line + '\n';
 			}
 			in.close();
 		} else {
