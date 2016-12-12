@@ -48,10 +48,10 @@ namespace gogll {
 
 		mat.setValue(0 + 0 * 4, 2.0f / (r - l));
 		mat.setValue(0 + 3 * 4, -(r + l) / (r - l));
-		mat.setValue(1 + 0 * 4, -2.0f / (b - t));
+		mat.setValue(1 + 1 * 4, -2.0f / (b - t));
 		mat.setValue(1 + 3 * 4, (b + t) / (b - t));
-		mat.setValue(2 + 0 * 4, 2.0f / (f - n));
-		mat.setValue(2 + 3 * 4, -(f + n) / (f - b));
+		mat.setValue(2 + 2 * 4, 2.0f / (f - n));
+		mat.setValue(2 + 3 * 4, -(f + n) / (f - n));
 
 		return mat;
 	}
