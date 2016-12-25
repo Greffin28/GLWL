@@ -35,8 +35,8 @@ namespace gogll {
 			mat.setValue(2 + 2 * 4, cos(angle));
 		} else if (axis == 'X' || axis == 'x') {
 			mat.setValue(1 + 1 * 4, cos(angle));
-			mat.setValue(1 + 2 * 4, -sin(angle));
-			mat.setValue(2 + 1 * 4, sin(angle));
+			mat.setValue(1 + 2 * 4, sin(angle));
+			mat.setValue(2 + 1 * 4, -sin(angle));
 			mat.setValue(2 + 2 * 4, cos(angle));
 		}
 
