@@ -70,8 +70,8 @@ namespace gogll {
 
 		mat.setValue(0 + 0 * 4, 2.0f * n / (r - l));
 		mat.setValue(0 + 2 * 4, -(r + l) / (r - l));
-		mat.setValue(1 + 1 * 4, -2.0f * n / (t - b));
-		mat.setValue(1 + 2 * 4, (t + b) / (t - b));
+		mat.setValue(1 + 1 * 4, -2.0f * n / (b - t));
+		mat.setValue(1 + 2 * 4, (b + t) / (b - t));
 		mat.setValue(2 + 2 * 4, (f + n) / (f - n));
 		mat.setValue(2 + 3 * 4, -2.0f * n * f / (f - n));
 		mat.setValue(3 + 3 * 4, 0.0f);
