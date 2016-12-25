@@ -59,10 +59,10 @@ namespace gogll {
 	mat4 mat4::perspective(int width, int height, float fov, float n, float f) {
 		mat4 mat;
 
-		fov = fov * PI / 180.0f;
+		fov = 0.5f * fov * PI / 180.0f;
 		float ratio = 1.0f * width / height;
 		
-		float halfScreenNear = n * tan(fov / 2.0f);
+		float halfScreenNear = n * tan(fov);
 		float r = halfScreenNear;
 		float l = -r;
 		float t = halfScreenNear / ratio;
@@ -74,8 +74,8 @@ namespace gogll {
 		mat.setValue(1 + 2 * 4, (b + t) / (b - t));
 		mat.setValue(2 + 2 * 4, (f + n) / (f - n));
 		mat.setValue(2 + 3 * 4, -2.0f * n * f / (f - n));
-		mat.setValue(3 + 3 * 4, 0.0f);
 		mat.setValue(3 + 2 * 4, 1.0f);
+		mat.setValue(3 + 3 * 4, 0.0f);
 
 		return mat;
 	}
