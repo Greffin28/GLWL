@@ -15,13 +15,10 @@ namespace gogll {
 	class vec4;
 	class mat4 {
 	private:
-		float values[16] = {
-			1.0f, 0.0f, 0.0f, 0.0f,
-			0.0f, 1.0f, 0.0f, 0.0f,
-			0.0f, 0.0f, 1.0f, 0.0f,
-			0.0f, 0.0f, 0.0f, 1.0f
-		};
+		float values[16];
 	public:
+		DLLExports mat4();
+
 		DLLExports static mat4 identity();
 		DLLExports static mat4 translate(float x, float y, float z);
 		DLLExports static mat4 rotation(char axis, float angle);

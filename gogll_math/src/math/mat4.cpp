@@ -3,6 +3,14 @@
 
 namespace gogll {
 
+	mat4::mat4() {
+		for (int y = 0; y < 4; y++) {
+			for (int x = 0; x < 4; x++) {
+				values[x + y * 4] = (x == y) ? 1 : 0;
+			}
+		}
+	}
+
 	mat4 mat4::identity() {
 		mat4 identity;
 		return identity;
