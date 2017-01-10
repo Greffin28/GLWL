@@ -9,8 +9,6 @@ namespace gogll {
 		std::ifstream is;
 		is.open(filePath);
 		if (is.is_open()) {
-			std::vector<unsigned char> image_data_255;
-
 			is.read((char*) &id_length, sizeof(char));
 
 			is.read(&color_map_type, sizeof(char));
@@ -32,17 +30,15 @@ namespace gogll {
 
 			image_id.resize(id_length);
 			color_map_data.resize(color_map_length);
-			image_data_255.resize(image_width * image_height * bytesPerPixel);
 			image_data.resize(image_width * image_height * bytesPerPixel);
 
-			unsigned char * ptr255 = image_data_255.data();
-
 			if (image_type == 2) {
-				is.read((char*) ptr255, image_width * image_height * bytesPerPixel);
+				is.read((char*) image_data.data(), image_width * image_height * bytesPerPixel);
 			} else if (image_type == 10) {
+				unsigned char * ptr = image_data.data();
 				unsigned int bytesDone = 0;
 
-				while (bytesDone < image_data_255.size()) {
+				while (bytesDone < image_data.size()) {
 					unsigned char head;
 					is.read((char*) &head, sizeof(char));
 					if (head & 128) {
@@ -56,22 +52,17 @@ namespace gogll {
 						is.read((char*) cptr, bytesPerPixel);
 
 						for (int i = 0; i < head; ++i) {
-							std::memcpy(ptr255 + bytesDone, cptr, bytesPerPixel);
+							std::memcpy(ptr + bytesDone, cptr, bytesPerPixel);
 							bytesDone += bytesPerPixel;
 						}
 					} else {
 						++head;
-						is.read((char*) (ptr255 + bytesDone), bytesPerPixel * head * sizeof(char));
+						is.read((char*) (ptr + bytesDone), bytesPerPixel * head * sizeof(char));
 						bytesDone += bytesPerPixel * head;
 					}
 				}
 			} else {
 				std::cout << "TGA image type " << image_type << " is not supported" << std::endl;
-			}
-
-			float * ptr = image_data.data();
-			for (unsigned int i = 0; i < image_data.size(); ++i) {
-				*(ptr + i) = *(ptr255 + i) / 255.0f;
 			}
 
 			is.close();
@@ -80,7 +71,7 @@ namespace gogll {
 		}
 	}
 
-	float * Image::getData() {
+	unsigned char * Image::getData() {
 		return image_data.data();
 	}
 

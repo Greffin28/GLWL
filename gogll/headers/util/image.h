@@ -33,13 +33,13 @@ namespace gogll {
 
 		std::vector<char> color_map_data;
 
-		std::vector<float> image_data;
+		std::vector<unsigned char> image_data;
 
 		char bytesPerPixel;
 	public:
 		DLLExports void loadTGA(const char * filePath);
 
-		DLLExports float * getData();
+		DLLExports unsigned char * getData();
 	};
 }
 
