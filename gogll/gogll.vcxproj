@@ -152,11 +152,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="headers\util\image.h" />
     <ClInclude Include="headers\util\shader.h" />
     <ClInclude Include="headers\util\texture.h" />
     <ClInclude Include="headers\util\vertex_buffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\util\image.cpp" />
     <ClCompile Include="src\util\shader.cpp" />
     <ClCompile Include="src\util\texture.cpp" />
     <ClCompile Include="src\util\vertex_buffer.cpp" />
