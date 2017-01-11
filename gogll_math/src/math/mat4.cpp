@@ -103,27 +103,35 @@ namespace gogll {
 	}
 
 	mat4 mat4::operator*(mat4 &lmat) {
-		mat4 result;
+		mat4 result = *this;
 
+		result *= lmat;
+
+		return result;
+	}
+
+	void mat4::operator*=(mat4 &lmat) {
+		mat4 temp = *this;
+
+		float val = 0;
+		float * dp1 = temp.getData();
+		float * p1;
+		float * dp2 = lmat.getData();
+		float * p2;
+		float * pv = values - 1;
 
 		for (int y = 0; y < 4; y++) {
 			for (int x = 0; x < 4; x++) {
-				float val = 0;
-				float *p1, *p2;
-				p1 = &getData()[x];
-				p2 = &lmat.getData()[y * 4] - 1;
+				val = 0;
+				p1 = dp1 + x;
+				p2 = dp2 + y * 4 - 1;
 				for (int i = 0; i < 4; i++) {
 					val += *(p1) * *(++p2);
 					p1 += 4;
 				}
-				result.setValue(x + y * 4, val);
+				*(++pv) = val;
 			}
 		}
-		return result;
-	}
-	
-	void mat4::operator*=(mat4 &lmat) {
-		*this = operator*(lmat);
 	}
 
 	vec4 mat4::operator*(vec4 &lvec) {
