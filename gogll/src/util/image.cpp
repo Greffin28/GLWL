@@ -71,6 +71,14 @@ namespace gogll {
 		}
 	}
 
+	unsigned short Image::getWidth() {
+		return image_width;
+	}
+
+	unsigned short Image::getHeight() {
+		return image_height;
+	}
+
 	unsigned char * Image::getData() {
 		return image_data.data();
 	}

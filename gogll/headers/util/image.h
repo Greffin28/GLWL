@@ -39,6 +39,8 @@ namespace gogll {
 	public:
 		DLLExports void loadTGA(const char * filePath);
 
+		DLLExports unsigned short getWidth();
+		DLLExports unsigned short getHeight();
 		DLLExports unsigned char * getData();
 	};
 }
