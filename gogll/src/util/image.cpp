@@ -9,22 +9,22 @@ namespace gogll {
 		std::ifstream is;
 		is.open(filePath, std::ios::binary);
 		if (is.is_open()) {
-			is.read((char*) &id_length, sizeof(char));
+			is.read((char*) &id_length, sizeof(uint8_t));
 
-			is.read(&color_map_type, sizeof(char));
+			is.read((char*) &color_map_type, sizeof(uint8_t));
 
-			is.read(&image_type, sizeof(char));
+			is.read((char*) &image_type, sizeof(uint8_t));
 
-			is.read((char*) &first_entry_index, sizeof(short));
-			is.read((char*) &color_map_length, sizeof(short));
-			is.read(&color_map_entry_size, sizeof(char));
+			is.read((char*) &first_entry_index, sizeof(uint16_t));
+			is.read((char*) &color_map_length, sizeof(uint16_t));
+			is.read((char*) &color_map_entry_size, sizeof(uint8_t));
 
-			is.read((char*) &x_origin, sizeof(short));
-			is.read((char*) &y_origin, sizeof(short));
-			is.read((char*) &image_width, sizeof(short));
-			is.read((char*) &image_height, sizeof(short));
-			is.read(&pixel_depth, sizeof(char));
-			is.read(&image_descriptor, sizeof(char));
+			is.read((char*) &x_origin, sizeof(uint16_t));
+			is.read((char*) &y_origin, sizeof(uint16_t));
+			is.read((char*) &image_width, sizeof(uint16_t));
+			is.read((char*) &image_height, sizeof(uint16_t));
+			is.read((char*) &pixel_depth, sizeof(uint8_t));
+			is.read((char*) &image_descriptor, sizeof(uint8_t));
 
 			bytesPerPixel = pixel_depth / 8;
 
@@ -35,19 +35,19 @@ namespace gogll {
 			if (image_type == 2) {
 				is.read((char*) image_data.data(), image_width * image_height * bytesPerPixel);
 			} else if (image_type == 10) {
-				unsigned char * ptr = image_data.data();
+				uint8_t * ptr = image_data.data();
 				unsigned int bytesDone = 0;
 
 				while (bytesDone < image_data.size()) {
-					unsigned char head;
-					is.read((char*) &head, sizeof(char));
+					uint8_t head;
+					is.read((char*) &head, sizeof(uint8_t));
 					if (head & 128) {
 						head -= 127;
 
-						std::vector<unsigned char> color;
+						std::vector<uint8_t> color;
 						color.resize(bytesPerPixel);
 
-						unsigned char * cptr = color.data();
+						uint8_t * cptr = color.data();
 
 						is.read((char*) cptr, bytesPerPixel);
 
@@ -57,7 +57,7 @@ namespace gogll {
 						}
 					} else {
 						++head;
-						is.read((char*) (ptr + bytesDone), bytesPerPixel * head * sizeof(char));
+						is.read((char*) (ptr + bytesDone), bytesPerPixel * head * sizeof(uint8_t));
 						bytesDone += bytesPerPixel * head;
 					}
 				}
@@ -71,15 +71,19 @@ namespace gogll {
 		}
 	}
 
-	unsigned short Image::getWidth() {
+	uint16_t Image::getWidth() {
 		return image_width;
 	}
 
-	unsigned short Image::getHeight() {
+	uint16_t Image::getHeight() {
 		return image_height;
 	}
 
-	unsigned char * Image::getData() {
+	uint8_t Image::getDepth() {
+		return pixel_depth;
+	}
+
+	uint8_t * Image::getData() {
 		return image_data.data();
 	}
 

@@ -12,36 +12,37 @@
 namespace gogll {
 	class Image {
 	private:
-		unsigned char id_length;
+		uint8_t id_length;
 
-		char color_map_type;
+		uint8_t color_map_type;
 
-		char image_type;
+		uint8_t image_type;
 
-		short first_entry_index;
-		short color_map_length;
-		char color_map_entry_size;
+		uint16_t first_entry_index;
+		uint16_t color_map_length;
+		uint8_t color_map_entry_size;
 
-		short x_origin;
-		short y_origin;
-		unsigned short image_width;
-		unsigned short image_height;
-		char pixel_depth;
-		char image_descriptor;
+		uint16_t x_origin;
+		uint16_t y_origin;
+		uint16_t image_width;
+		uint16_t image_height;
+		uint8_t pixel_depth;
+		uint8_t image_descriptor;
 
-		std::vector<char> image_id;
+		std::vector<uint8_t> image_id;
 
-		std::vector<char> color_map_data;
+		std::vector<uint8_t> color_map_data;
 
-		std::vector<unsigned char> image_data;
+		std::vector<uint8_t> image_data;
 
-		char bytesPerPixel;
+		uint8_t bytesPerPixel;
 	public:
 		DLLExports void loadTGA(const char * filePath);
 
-		DLLExports unsigned short getWidth();
-		DLLExports unsigned short getHeight();
-		DLLExports unsigned char * getData();
+		DLLExports uint16_t getWidth();
+		DLLExports uint16_t getHeight();
+		DLLExports uint8_t getDepth();
+		DLLExports uint8_t * getData();
 	};
 }
 
