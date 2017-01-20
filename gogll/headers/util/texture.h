@@ -9,15 +9,30 @@
 
 #include <GL\glew.h>
 
+#include "image.h"
+
 namespace gogll {
 	class Texture {
 	private:
 		GLuint tex;
+
+		GLenum minFilter;
+		GLenum magFilter;
+		GLenum warpS;
+		GLenum warpT;
 	public:
 		DLLExports Texture();
 
+		DLLExports void setImage2D(Image image);
+
 		DLLExports void bind();
 		DLLExports static void unbind();
+
+		DLLExports void setMinFilter(GLenum mode);
+		DLLExports void setMagFilter(GLenum mode);
+		DLLExports void setWarpS(GLenum mode);
+		DLLExports void setWarpT(GLenum mode);
+		DLLExports GLuint getID();
 
 		DLLExports ~Texture();
 	};
