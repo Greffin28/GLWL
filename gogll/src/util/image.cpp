@@ -7,7 +7,7 @@ namespace gogll {
 
 	void Image::loadTGA(const char * filePath) {
 		std::ifstream is;
-		is.open(filePath);
+		is.open(filePath, std::ios::binary);
 		if (is.is_open()) {
 			is.read((char*) &id_length, sizeof(char));
 
