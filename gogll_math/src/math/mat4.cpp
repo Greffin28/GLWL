@@ -12,8 +12,7 @@ namespace gogll {
 	}
 
 	mat4 mat4::identity() {
-		mat4 identity;
-		return identity;
+		return mat4();
 	}
 
 	mat4 mat4::translate(float x, float y, float z) {
@@ -102,29 +101,24 @@ namespace gogll {
 		return values;
 	}
 
-	mat4 mat4::operator*(mat4 &lmat) {
+	mat4 mat4::operator*(mat4 &rmat) {
 		mat4 result = *this;
 
-		result *= lmat;
-
-		return result;
+		return (result *= rmat);
 	}
 
-	void mat4::operator*=(mat4 &lmat) {
+	mat4 mat4::operator*=(mat4 &rmat) {
 		mat4 temp = *this;
 
-		float val = 0;
 		float * dp1 = temp.getData();
-		float * p1;
-		float * dp2 = lmat.getData();
-		float * p2;
+		float * dp2 = rmat.getData();
 		float * pv = values - 1;
 
 		for (int y = 0; y < 4; y++) {
 			for (int x = 0; x < 4; x++) {
-				val = 0;
-				p1 = dp1 + x;
-				p2 = dp2 + y * 4 - 1;
+				float val = 0;
+				float *p1 = dp1 + x;
+				float *p2 = dp2 + y * 4 - 1;
 				for (int i = 0; i < 4; i++) {
 					val += *(p1) * *(++p2);
 					p1 += 4;
@@ -132,15 +126,17 @@ namespace gogll {
 				*(++pv) = val;
 			}
 		}
+
+		return *this;
 	}
 
-	vec4 mat4::operator*(vec4 &lvec) {
+	vec4 mat4::operator*(vec4 &rvec) {
 		vec4 result;
 		for (int x = 0; x < 4; x++) {
 			float val = 0;
 			float *p1, *p2;
 			p1 = &getData()[x];
-			p2 = lvec.getData() - 1;
+			p2 = rvec.getData() - 1;
 			for (int i = 0; i < 4; i++) {
 				val += *(p1) * *(++p2);
 				p1 += 4;

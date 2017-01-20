@@ -29,9 +29,9 @@ namespace gogll {
 		DLLExports float getValue(int i);
 		DLLExports float * getData();
 
-		DLLExports mat4 operator*(mat4 &lmat);
-		DLLExports void operator*=(mat4 &lmat);
-		DLLExports vec4 operator*(vec4 &lmat);
+		DLLExports mat4 operator*(mat4 &rmat);
+		DLLExports mat4 operator*=(mat4 &rmat);
+		DLLExports vec4 operator*(vec4 &rmat);
 	};
 }
 
