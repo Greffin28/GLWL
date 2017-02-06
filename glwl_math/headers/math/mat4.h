@@ -11,7 +11,7 @@
 
 #define PI 3.1415926535f
 
-namespace gogll {
+namespace glwl {
 	class vec4;
 	class mat4 {
 	private:

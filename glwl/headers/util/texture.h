@@ -11,7 +11,7 @@
 
 #include "image.h"
 
-namespace gogll {
+namespace glwl {
 	class Texture {
 	private:
 		GLuint tex;

@@ -1,6 +1,6 @@
 #include "util\shader.h"
 
-namespace gogll {
+namespace glwl {
 
 	void Shader::loadvf(std::string vPath, std::string fPath) {
 		std::ifstream in;

@@ -7,7 +7,7 @@
 #define DLLExports __declspec(dllimport)
 #endif
 
-namespace gogll {
+namespace glwl {
 	class vec4 {
 	private:
 		float values[4];

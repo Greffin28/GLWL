@@ -1,6 +1,6 @@
 #include "util\texture.h"
 
-namespace gogll {
+namespace glwl {
 
 	Texture::Texture() {
 		glGenTextures(1, &tex);

@@ -9,7 +9,7 @@
 
 #include <vector>
 
-namespace gogll {
+namespace glwl {
 	class Image {
 	private:
 		uint8_t id_length;

@@ -1,6 +1,6 @@
 #include "util\vertex_buffer.h"
 
-namespace gogll {
+namespace glwl {
 	VertexBuffer::VertexBuffer() {
 		glGenVertexArrays(1, &vao);
 		glGenBuffers(1, &vbo);

@@ -1,6 +1,6 @@
 #include "math\vec4.h"
 
-namespace gogll {
+namespace glwl {
 
 	vec4::vec4(float f) {
 		values[0] = values[1] = values[2] = values[3] = f;

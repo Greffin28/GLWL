@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-namespace gogll {
+namespace glwl {
 
 	void Image::loadTGA(const char * filePath) {
 		std::ifstream is;

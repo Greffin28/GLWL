@@ -13,7 +13,7 @@
 
 #include <GL\glew.h>
 
-namespace gogll {
+namespace glwl {
 	class Shader {
 	private:
 		GLuint program, vShader, fShader;

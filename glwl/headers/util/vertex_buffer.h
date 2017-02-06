@@ -9,7 +9,7 @@
 
 #include <GL\glew.h>
 
-namespace gogll {
+namespace glwl {
 	class VertexBuffer {
 	private:
 		GLuint vbo, vao;

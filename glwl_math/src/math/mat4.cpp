@@ -1,7 +1,7 @@
 #include "math\mat4.h"
 #include "math\vec4.h"
 
-namespace gogll {
+namespace glwl {
 
 	mat4::mat4() {
 		for (int y = 0; y < 4; y++) {
