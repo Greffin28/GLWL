@@ -15,11 +15,11 @@ namespace gogll {
 		bind();
 
 		GLenum internalFormat = GL_RGB;
-		GLenum imageFormat = GL_BGR;
+		GLenum imageFormat = GL_RGB;
 
 		if (image.getDepth() == 32) {
 			internalFormat = GL_RGBA;
-			imageFormat = GL_BGRA;
+			imageFormat = GL_RGBA;
 		}
 
 		glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, image.getWidth(), image.getHeight(), 0, imageFormat, GL_UNSIGNED_BYTE, image.getData());

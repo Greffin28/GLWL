@@ -29,7 +29,9 @@ namespace gogll {
 			bytesPerPixel = pixel_depth / 8;
 
 			image_id.resize(id_length);
+			is.read((char*) image_id.data(), id_length);
 			color_map_data.resize(color_map_length);
+			is.read((char*) color_map_data.data(), color_map_length);
 			image_data.resize(image_width * image_height * bytesPerPixel);
 
 			if (image_type == 2) {
@@ -63,6 +65,22 @@ namespace gogll {
 				}
 			} else {
 				std::cout << "TGA image type " << image_type << " is not supported" << std::endl;
+			}
+
+			uint8_t * ptr = image_data.data();
+			std::vector<uint8_t> tmprow(bytesPerPixel * image_width);
+			uint8_t * tmprowptr = tmprow.data();
+			for (int y = 0; y < image_height / 2; ++y) {
+				memcpy(tmprowptr, ptr + (y * image_width) * bytesPerPixel, bytesPerPixel * image_width);
+				memcpy(ptr + (y * image_width) * bytesPerPixel, ptr + (image_height - 1 - y) * image_width * bytesPerPixel, bytesPerPixel * image_width);
+				memcpy(ptr + (image_height - 1 - y) * image_width * bytesPerPixel, tmprowptr, bytesPerPixel * image_width);
+			}
+			for (int y = 0; y < image_height; ++y) {
+				for (int x = 0; x < image_width; ++x) {
+					uint8_t tmpb = *(ptr + (x + y * image_width) * bytesPerPixel);
+					*(ptr + (x + y * image_width) * bytesPerPixel) = *(ptr + (x + y * image_width) * bytesPerPixel + 2);
+					*(ptr + (x + y * image_width) * bytesPerPixel + 2) = tmpb;
+				}
 			}
 
 			is.close();
