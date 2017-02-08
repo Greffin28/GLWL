@@ -1,6 +1,7 @@
 *.VC.opendb
 *.VC.db
 
+/lib/
 /.vs/
 /Debug/
 /glwl_math/Debug/
