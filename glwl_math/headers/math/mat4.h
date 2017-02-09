@@ -21,6 +21,7 @@ namespace glwl {
 
 		DLLExports static mat4 identity();
 		DLLExports static mat4 translate(float x, float y, float z);
+		DLLExports static mat4 scale(float x, float y, float z);
 		DLLExports static mat4 rotation(char axis, float angle);
 		DLLExports static mat4 ortho(float l, float t, float r, float b, float n, float f);
 		DLLExports static mat4 perspective(int width, int height, float fov, float n, float f);

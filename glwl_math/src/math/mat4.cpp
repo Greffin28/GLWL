@@ -24,6 +24,15 @@ namespace glwl {
 
 		return mat;
 	}
+	mat4 mat4::scale(float x, float y, float z) {
+		mat4 mat;
+
+		mat.setValue(0 + 0 * 4, x);
+		mat.setValue(1 + 1 * 4, y);
+		mat.setValue(2 + 2 * 4, z);
+
+		return mat;
+	}
 
 	mat4 mat4::rotation(char axis, float angle) {
 		mat4 mat;
