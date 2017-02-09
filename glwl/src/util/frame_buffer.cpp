@@ -10,7 +10,7 @@ namespace glwl {
 		glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 	}
 
-	void FrameBuffer::bind() {
+	void FrameBuffer::unbind() {
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 
