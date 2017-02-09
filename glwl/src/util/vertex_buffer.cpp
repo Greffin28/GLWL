@@ -1,29 +1,17 @@
 #include "util\vertex_buffer.h"
 
 namespace glwl {
+
 	VertexBuffer::VertexBuffer() {
-		glGenVertexArrays(1, &vao);
 		glGenBuffers(1, &vbo);
 	}
 
-	void VertexBuffer::bindVAO() {
-		glBindVertexArray(vao);
-	}
-
-	void VertexBuffer::bindVBO(GLenum target) {
+	void VertexBuffer::bind(GLenum target) {
 		glBindBuffer(target, vbo);
 	}
 
-	void VertexBuffer::unbindVAO() {
-		glBindVertexArray(0);
-	}
-
-	void VertexBuffer::unbindVBO(GLenum target) {
+	void VertexBuffer::unbind(GLenum target) {
 		glBindBuffer(target, 0);
-	}
-
-	GLuint VertexBuffer::getVAO() {
-		return vao;
 	}
 
 	GLuint VertexBuffer::getVBO() {
@@ -32,6 +20,6 @@ namespace glwl {
 
 	VertexBuffer::~VertexBuffer() {
 		glDeleteBuffers(1, &vbo);
-		glDeleteVertexArrays(1, &vao);
 	}
+
 }

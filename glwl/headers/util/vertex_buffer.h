@@ -12,16 +12,13 @@
 namespace glwl {
 	class VertexBuffer {
 	private:
-		GLuint vbo, vao;
+		GLuint vbo;
 	public:
 		DLLExports VertexBuffer();
 
-		DLLExports void bindVAO();
-		DLLExports void bindVBO(GLenum target);
-		DLLExports static void unbindVAO();
-		DLLExports static void unbindVBO(GLenum target);
+		DLLExports void bind(GLenum target);
+		DLLExports static void unbind(GLenum target);
 
-		DLLExports GLuint getVAO();
 		DLLExports GLuint getVBO();
 
 		DLLExports ~VertexBuffer();
