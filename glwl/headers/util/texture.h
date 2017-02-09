@@ -1,7 +1,7 @@
-#ifndef _GOGLL_TEXTURE_H_
-#define _GOGLL_TEXTURE_H_
+#ifndef _GLWL_TEXTURE_H_
+#define _GLWL_TEXTURE_H_
 
-#ifdef GOGLL_EXPORTS
+#ifdef GLWL_EXPORTS
 #define DLLExports __declspec(dllexport)
 #else
 #define DLLExports __declspec(dllimport)

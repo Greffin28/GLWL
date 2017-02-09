@@ -1,7 +1,7 @@
-#ifndef _GOGLL_SHADER_H_
-#define _GOGLL_SHADER_H_
+#ifndef _GLWL_SHADER_H_
+#define _GLWL_SHADER_H_
 
-#ifdef GOGLL_EXPORTS
+#ifdef GLWL_EXPORTS
 #define DLLExports __declspec(dllexport)
 #else
 #define DLLExports __declspec(dllimport)

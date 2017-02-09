@@ -1,7 +1,7 @@
-#ifndef _GOGLL_MAT4_H_
-#define _GOGLL_MAT4_H_
+#ifndef _GLWL_MAT4_H_
+#define _GLWL_MAT4_H_
 
-#ifdef GOGLL_EXPORTS
+#ifdef GLWL_EXPORTS
 #define DLLExports __declspec(dllexport)
 #else
 #define DLLExports __declspec(dllimport)
