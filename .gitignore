@@ -1,5 +1,11 @@
+/CMakeFiles/
+*.cmake
+CMakeCache.txt
+
 *.VC.opendb
 *.VC.db
+*.swp
+makefile
 
 /lib/
 /.vs/
