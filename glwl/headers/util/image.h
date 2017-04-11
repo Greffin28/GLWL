@@ -8,6 +8,7 @@
 #endif
 
 #include <vector>
+#include <stdint.h>
 
 namespace glwl {
 	class Image {

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <memory.h>
 
 namespace glwl {
 
@@ -54,7 +55,7 @@ namespace glwl {
 						is.read((char*) cptr, bytesPerPixel);
 
 						for (int i = 0; i < head; ++i) {
-							std::memcpy(ptr + bytesDone, cptr, bytesPerPixel);
+							memcpy(ptr + bytesDone, cptr, bytesPerPixel);
 							bytesDone += bytesPerPixel;
 						}
 					} else {
