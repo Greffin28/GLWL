@@ -1,19 +1,4 @@
-/CMakeFiles/
-*.cmake
-CMakeCache.txt
-
-*.VC.opendb
-*.VC.db
-*.swp
-makefile
-
 /ext_lib/
-
-/lib/
-/.vs/
-/Debug/
-/glwl_math/Debug/
-/glwl/Debug/
+/build/
 
 *.bat
-*.dll
