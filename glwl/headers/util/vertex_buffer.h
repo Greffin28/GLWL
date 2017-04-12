@@ -1,13 +1,17 @@
 #ifndef _GLWL_VERTEX_BUFFER_H_
 #define _GLWL_VERTEX_BUFFER_H_
 
-#ifdef GLWL_EXPORTS
-#define DLLExports __declspec(dllexport)
+#ifdef _WIN32
+	#ifdef GLWL_EXPORTS
+	#define DLLExports __declspec(dllexport)
+	#else
+	#define DLLExports __declspec(dllimport)
+	#endif
 #else
-#define DLLExports __declspec(dllimport)
+#define DLLExports
 #endif
 
-#include <GL\glew.h>
+#include <GL/glew.h>
 
 namespace glwl {
 	class VertexBuffer {

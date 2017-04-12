@@ -1,7 +1,7 @@
 # ================================================================================
 # General Stuff
 # ================================================================================
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.6)
 
 project(GLWL)
 
@@ -27,12 +27,15 @@ file(GLOB GLWL_INC glwl/headers/util/*.h)
 file(GLOB GLWL_SRC glwl/src/util/*.cpp)
 
 # Find GLEW library
-# Path built with VS 2015 Community	: ext_lib/glew/lib/Release/Win32
-# Path built with Make			: ext_lib/glew/lib
-# Compiled with VS	: You need *.lib
+# 	Path built with MSVC	: ext_lib/glew/lib/Release/Win32
+# 	Path built with Make	: ext_lib/glew/lib
+# Compiled with MSVC	: You need *.lib
 # Compiled with MinGW	: You need *.dll.a
-set(GLEW_LIB_PATH ext_lib/glew/lib/Release/Win32)
-find_library(GLEW glew32 HINTS ${GLEW_LIB_PATH})
+# Compiled with GCC	: You need *.so
+# Windows	: glew32
+# Linux		: GLEW
+set(GLEW_LIB_PATH ext_lib/glew/lib)
+find_library(GLEW GLEW HINTS ${GLEW_LIB_PATH})
 if (GLEW)
 	message(STATUS "glew library found: " ${GLEW})
 else ()

@@ -1,4 +1,4 @@
-#include "util\image.h"
+#include "util/image.h"
 
 #include <iostream>
 #include <fstream>

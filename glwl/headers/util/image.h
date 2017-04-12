@@ -1,10 +1,14 @@
 #ifndef _GLWL_IMAGE_H_
 #define _GLWL_IMAGE_H_
 
-#ifdef GLWL_EXPORTS
-#define DLLExports __declspec(dllexport)
+#ifdef _WIN32
+	#ifdef GLWL_EXPORTS
+	#define DLLExports __declspec(dllexport)
+	#else
+	#define DLLExports __declspec(dllimport)
+	#endif
 #else
-#define DLLExports __declspec(dllimport)
+#define DLLExports
 #endif
 
 #include <vector>

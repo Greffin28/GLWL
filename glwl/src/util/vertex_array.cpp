@@ -1,4 +1,4 @@
-#include <util\vertex_array.h>
+#include <util/vertex_array.h>
 
 namespace glwl {
 
