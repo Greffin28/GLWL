@@ -25,3 +25,18 @@ Now, go to `ext_lib/glew/build/vc12` which will contain the Visual Studio soluti
 ##### Building GLWL
 Next, go back to `GLWL` folder. Make a new folder called `build` then open it, this is optional. From there, run `cmake ..` (provided that your default compiler is MSVC). After it run successfully, open up the GLWL solution and press `CTRL+SHIFT+B`. The files will be in `lib` folder.
 
+### Fedora
+#### Make-GCC
+##### Building GLEW
+First you need to install some dependencies.
+
+`$ sudo dnf install libX11-devel mesa-libGL-devel mesa-libGLU-devel`
+
+*This is what occured to me, tell me if there are something missing*
+
+Those are the packages we need. Now, run `make glew.lib` in the `ext_lib/glew` folder.
+##### Building GLWL
+Next, go back to `GLWL` folder. Make a new folder called `build` then open it, this is optional. From there, run `cmake ..` this will create a makefile. After it run successfully, run `make`. The files will be in `lib` folder.
+
+### Error: glew library not found
+If there's an error saying glew library not found, open up CMakeLists.txt file. Find the word `GLEW_LIB_PATH` change the path accordingly to your OS and folder path, make sure they are correct. Also, change the glew library name accordingly. I'll fix this in later on.

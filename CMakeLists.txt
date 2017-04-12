@@ -32,9 +32,10 @@ file(GLOB GLWL_SRC glwl/src/util/*.cpp)
 # Compiled with MSVC	: You need *.lib
 # Compiled with MinGW	: You need *.dll.a
 # Compiled with GCC	: You need *.so
+set(GLEW_LIB_PATH ext_lib/glew/lib)
+# Glew library name
 # Windows	: glew32
 # Linux		: GLEW
-set(GLEW_LIB_PATH ext_lib/glew/lib)
 find_library(GLEW GLEW HINTS ${GLEW_LIB_PATH})
 if (GLEW)
 	message(STATUS "glew library found: " ${GLEW})
