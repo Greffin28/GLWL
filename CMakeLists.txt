@@ -27,11 +27,11 @@ file(GLOB GLWL_INC glwl/headers/util/*.h)
 file(GLOB GLWL_SRC glwl/src/util/*.cpp)
 
 # Find GLEW library
-# Path built with VS 2015 Community	: ext_lib/glew-2.0.0/lib/Release/Win32
-# Path built with Make			: ext_lib/glew-2.0.0/lib
+# Path built with VS 2015 Community	: ext_lib/glew/lib/Release/Win32
+# Path built with Make			: ext_lib/glew/lib
 # Compiled with VS	: You need *.lib
-# Compiled with MinGW	: You need .dll.a
-set(GLEW_LIB_PATH ext_lib/glew-2.0.0/lib/Release/Win32)
+# Compiled with MinGW	: You need *.dll.a
+set(GLEW_LIB_PATH ext_lib/glew/lib/Release/Win32)
 find_library(GLEW glew32 HINTS ${GLEW_LIB_PATH})
 if (GLEW)
 	message(STATUS "glew library found: " ${GLEW})
@@ -48,5 +48,5 @@ else()
 endif()
 
 add_library(glwl SHARED ${GLWL_SRC} ${GLWL_INC})
-target_include_directories(glwl PUBLIC glwl/headers ext_lib/glew-2.0.0/include)
+target_include_directories(glwl PUBLIC glwl/headers ext_lib/glew/include)
 target_link_libraries(glwl ${GLEW} ${OPENGL_gl_LIBRARY})
