@@ -12,7 +12,7 @@ namespace glwl {
 	}
 
 	Matrix4 Matrix4::identity() {
-		return mat4();
+		return Matrix4();
 	}
 
 	Matrix4 Matrix4::translate(float x, float y, float z) {
