@@ -37,6 +37,3 @@ First you need to install some dependencies.
 Those are the packages we need. Now, run `make glew.lib` in the `ext_lib/glew` folder.
 ##### Building GLWL
 Next, go back to `GLWL` folder. Make a new folder called `build` then open it, this is optional. From there, run `cmake ..` this will create a makefile. After it run successfully, run `make`. The files will be in `lib` folder.
-
-### Error: glew library not found
-If there's an error saying glew library not found, open up CMakeLists.txt file. Find the word `GLEW_LIB_PATH` change the path accordingly to your OS and folder path, make sure they are correct. Also, change the glew library name accordingly. I'll fix this in later on.
