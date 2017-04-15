@@ -1,9 +1,9 @@
-#include "math/mat4.h"
-#include "math/vec4.h"
+#include "Math/Matrix4.h"
+#include "Math/Vector4.h"
 
 namespace glwl {
 
-	mat4::mat4() {
+	Matrix4::Matrix4() {
 		for (int y = 0; y < 4; y++) {
 			for (int x = 0; x < 4; x++) {
 				values[x + y * 4] = (x == y) ? 1 : 0;
@@ -11,12 +11,12 @@ namespace glwl {
 		}
 	}
 
-	mat4 mat4::identity() {
+	Matrix4 Matrix4::identity() {
 		return mat4();
 	}
 
-	mat4 mat4::translate(float x, float y, float z) {
-		mat4 mat;
+	Matrix4 Matrix4::translate(float x, float y, float z) {
+		Matrix4 mat;
 		
 		mat.setValue(0 + 3 * 4, x);
 		mat.setValue(1 + 3 * 4, y);
@@ -24,8 +24,8 @@ namespace glwl {
 
 		return mat;
 	}
-	mat4 mat4::scale(float x, float y, float z) {
-		mat4 mat;
+	Matrix4 Matrix4::scale(float x, float y, float z) {
+		Matrix4 mat;
 
 		mat.setValue(0 + 0 * 4, x);
 		mat.setValue(1 + 1 * 4, y);
@@ -34,8 +34,8 @@ namespace glwl {
 		return mat;
 	}
 
-	mat4 mat4::rotation(char axis, float angle) {
-		mat4 mat;
+	Matrix4 Matrix4::rotation(char axis, float angle) {
+		Matrix4 mat;
 
 		angle = angle * PI / 180.0f;
 
@@ -59,8 +59,8 @@ namespace glwl {
 		return mat;
 	}
 
-	mat4 mat4::ortho(float l, float t, float r, float b, float n, float f) {
-		mat4 mat;
+	Matrix4 Matrix4::ortho(float l, float t, float r, float b, float n, float f) {
+		Matrix4 mat;
 
 		mat.setValue(0 + 0 * 4, 2.0f / (r - l));
 		mat.setValue(0 + 3 * 4, -(r + l) / (r - l));
@@ -72,8 +72,8 @@ namespace glwl {
 		return mat;
 	}
 
-	mat4 mat4::perspective(int width, int height, float fov, float n, float f) {
-		mat4 mat;
+	Matrix4 Matrix4::perspective(int width, int height, float fov, float n, float f) {
+		Matrix4 mat;
 
 		fov = 0.5f * fov * PI / 180.0f;
 		float ratio = 1.0f * width / height;
@@ -96,28 +96,28 @@ namespace glwl {
 		return mat;
 	}
 
-	void mat4::setValue(int i, float val) {
+	void Matrix4::setValue(int i, float val) {
 		if (i < 0 || i >= 16) return;
 		values[i] = val;
 	}
 
-	float mat4::getValue(int i) {
+	float Matrix4::getValue(int i) {
 		if (i < 0 || i >= 16) return 0.0f;
 		return values[i];
 	}
 
-	float * mat4::getData() {
+	float * Matrix4::getData() {
 		return values;
 	}
 
-	mat4 mat4::operator*(mat4 &rmat) {
-		mat4 result = *this;
+	Matrix4 Matrix4::operator*(Matrix4 &rmat) {
+		Matrix4 result = *this;
 
 		return (result *= rmat);
 	}
 
-	mat4 mat4::operator*=(mat4 &rmat) {
-		mat4 temp = *this;
+	Matrix4 Matrix4::operator*=(Matrix4 &rmat) {
+		Matrix4 temp = *this;
 
 		float * dp1 = temp.getData();
 		float * dp2 = rmat.getData();
@@ -139,8 +139,8 @@ namespace glwl {
 		return *this;
 	}
 
-	vec4 mat4::operator*(vec4 &rvec) {
-		vec4 result;
+	Vector4 Matrix4::operator*(Vector4 &rvec) {
+		Vector4 result;
 		for (int x = 0; x < 4; x++) {
 			float val = 0;
 			float *p1, *p2;

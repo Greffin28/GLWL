@@ -1,4 +1,4 @@
-#include "util/vertex_buffer.h"
+#include "Util/VertexBuffer.h"
 
 namespace glwl {
 

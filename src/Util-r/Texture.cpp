@@ -1,4 +1,4 @@
-#include "util/texture.h"
+#include "Util/Texture.h"
 
 namespace glwl {
 

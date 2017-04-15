@@ -13,7 +13,7 @@
 
 #include <GL/glew.h>
 
-#include "image.h"
+#include "Image.h"
 
 namespace glwl {
 	class Texture {

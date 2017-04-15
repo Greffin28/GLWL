@@ -12,13 +12,13 @@
 #endif
 
 namespace glwl {
-	class vec4 {
+	class Vector4 {
 	private:
 		float values[4];
 	public:
-		DLLExports vec4() {};
-		DLLExports vec4(float f);
-		DLLExports vec4(float x, float y, float z, float w = 1.0f);
+		DLLExports Vector4() {};
+		DLLExports Vector4(float f);
+		DLLExports Vector4(float x, float y, float z, float w = 1.0f);
 
 		DLLExports void setValue(int i, float val);
 		DLLExports float getValue(int i) const;

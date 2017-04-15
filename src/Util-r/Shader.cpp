@@ -1,4 +1,4 @@
-#include "util/shader.h"
+#include "Util/Shader.h"
 
 namespace glwl {
 

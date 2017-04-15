@@ -1,4 +1,4 @@
-#include "math/vec4.h"
+#include "Math/Vec4.h"
 
 namespace glwl {
 
