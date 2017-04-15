@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <memory.h>
+#include <cstring>
 
 namespace glwl {
 

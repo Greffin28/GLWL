@@ -12,7 +12,7 @@
 #endif
 
 #include <vector>
-#include <stdint.h>
+#include <cstdint>
 
 namespace glwl {
 	class Image {
