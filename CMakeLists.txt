@@ -16,8 +16,8 @@ set(SRC_DIR src)
 # GLWL Math
 # ================================================================================
 
-file(GLOB GLWL_MATH_INC ${INCLUDE_DIR}/math/*.h)
-file(GLOB GLWL_MATH_SRC ${SRC_DIR}/math/*.cpp)
+file(GLOB GLWL_MATH_INC ${INCLUDE_DIR}/Math/*.h)
+file(GLOB GLWL_MATH_SRC ${SRC_DIR}/Math/*.cpp)
 
 add_library(glwl_math SHARED ${GLWL_MATH_SRC} ${GLWL_MATH_INC})
 target_include_directories(glwl_math PUBLIC ${INCLUDE_DIR})
@@ -26,8 +26,8 @@ target_include_directories(glwl_math PUBLIC ${INCLUDE_DIR})
 # GLWL
 # ================================================================================
 
-file(GLOB GLWL_INC ${INCLUDE_DIR}/util/*.h)
-file(GLOB GLWL_SRC ${SRC_DIR}/util/*.cpp)
+file(GLOB GLWL_INC ${INCLUDE_DIR}/Util/*.h)
+file(GLOB GLWL_SRC ${SRC_DIR}/Util/*.cpp)
 
 # Find GLEW library
 # 	Path built with MSVC	: ext_lib/glew/lib/Release/Win32
