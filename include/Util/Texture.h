@@ -27,6 +27,7 @@ namespace glwl {
 	public:
 		DLLExports Texture();
 
+		DLLExports void blankTexture(int width, int height);
 		DLLExports void setImage2D(Image image);
 
 		DLLExports void bind();

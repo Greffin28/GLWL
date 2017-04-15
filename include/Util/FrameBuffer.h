@@ -13,15 +13,22 @@
 
 #include <GL/glew.h>
 
+#include "Util/Texture.h"
+
 namespace glwl {
 	class FrameBuffer {
 	private:
 		GLuint fbo;
+		Texture tex;
+		GLuint rbo;
 	public:
 		DLLExports FrameBuffer();
+		DLLExports FrameBuffer(int width, int height, bool depth = false);
 
 		DLLExports void bind();
 		DLLExports static void unbind();
+
+		DLLExports GLuint getFBO();
 
 		DLLExports ~FrameBuffer();
 	};

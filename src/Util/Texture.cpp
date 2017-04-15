@@ -11,6 +11,18 @@ namespace glwl {
 		warpT = GL_REPEAT;
 	}
 
+	void Texture::blankTexture(int width, int height) {
+		bind();
+
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, warpS);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, warpT);
+
+		unbind();
+	}
+
 	void Texture::setImage2D(Image image) {
 		bind();
 
