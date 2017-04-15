@@ -9,22 +9,25 @@ set(CMAKE_CXX_FLAGS "-std=c++11 -DGLWL_EXPORTS")
 
 set(LIBRARY_OUTPUT_PATH lib)
 
+set(INCLUDE_DIR include)
+set(SRC_DIR src)
+
 # ================================================================================
 # GLWL Math
 # ================================================================================
 
-file(GLOB GLWL_MATH_INC glwl_math/headers/math/*.h)
-file(GLOB GLWL_MATH_SRC glwl_math/src/math/*.cpp)
+file(GLOB GLWL_MATH_INC ${INCLUDE_DIR}/math/*.h)
+file(GLOB GLWL_MATH_SRC ${SRC_DIR}/math/*.cpp)
 
 add_library(glwl_math SHARED ${GLWL_MATH_SRC} ${GLWL_MATH_INC})
-target_include_directories(glwl_math PUBLIC glwl_math/headers)
+target_include_directories(glwl_math PUBLIC ${INCLUDE_DIR})
 
 # ================================================================================
 # GLWL
 # ================================================================================
 
-file(GLOB GLWL_INC glwl/headers/util/*.h)
-file(GLOB GLWL_SRC glwl/src/util/*.cpp)
+file(GLOB GLWL_INC ${INCLUDE_DIR}/util/*.h)
+file(GLOB GLWL_SRC ${SRC_DIR}/util/*.cpp)
 
 # Find GLEW library
 # 	Path built with MSVC	: ext_lib/glew/lib/Release/Win32
@@ -62,5 +65,5 @@ else()
 endif()
 
 add_library(glwl SHARED ${GLWL_SRC} ${GLWL_INC})
-target_include_directories(glwl PUBLIC glwl/headers ext_lib/glew/include)
+target_include_directories(glwl PUBLIC ${INCLUDE_DIR} ext_lib/glew/include)
 target_link_libraries(glwl ${GLEW} ${OPENGL_gl_LIBRARY})
