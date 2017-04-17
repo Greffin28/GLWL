@@ -46,7 +46,7 @@ endif ()
 if (WIN32)
 	set(GLEW_LIB_NAME glew32)
 else ()
-	set(GLEW_LIB_NAME glew)
+	set(GLEW_LIB_NAME GLEW)
 endif ()
 
 find_library(GLEW ${GLEW_LIB_NAME} HINTS ${GLEW_LIB_PATH})
