@@ -23,7 +23,8 @@ namespace glwl {
 		GLuint rbo;
 	public:
 		DLLExports FrameBuffer();
-		DLLExports FrameBuffer(int width, int height, bool depth = false);
+
+		DLLExports void setUp(int width, int height, bool depth = false);
 
 		DLLExports void bind();
 		DLLExports static void unbind();

@@ -8,8 +8,7 @@ namespace glwl {
 		glGenFramebuffers(1, &fbo);
 	}
 
-	FrameBuffer::FrameBuffer(int width, int height, bool depth) {
-		glGenFramebuffers(1, &fbo);
+	void FrameBuffer::setUp(int width, int height, bool depth) {
 		tex.blankTexture(width, height);
 		bind();
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, tex.getID(), 0);
