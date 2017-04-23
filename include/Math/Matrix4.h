@@ -15,8 +15,6 @@
 
 #define PI 3.1415926535f
 
-#include <iostream>
-
 namespace glwl {
 	class Vector4;
 	class Matrix4 {
