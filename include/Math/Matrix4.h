@@ -15,6 +15,8 @@
 
 #define PI 3.1415926535f
 
+#include <iostream>
+
 namespace glwl {
 	class Vector4;
 	class Matrix4 {
@@ -34,9 +36,9 @@ namespace glwl {
 		DLLExports float getValue(int i);
 		DLLExports float * getData();
 
-		DLLExports Matrix4 operator*(Matrix4 &rmat);
-		DLLExports Matrix4 operator*=(Matrix4 &rmat);
-		DLLExports Vector4 operator*(Vector4 &rvec);
+		DLLExports Matrix4 operator*(Matrix4 & rmat);
+		DLLExports Matrix4 & operator*=(Matrix4 & rmat);
+		DLLExports Vector4 operator*(Vector4 & rvec);
 	};
 }
 

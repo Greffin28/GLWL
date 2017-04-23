@@ -4,8 +4,8 @@
 namespace glwl {
 
 	Matrix4::Matrix4() {
-		for (int y = 0; y < 4; y++) {
-			for (int x = 0; x < 4; x++) {
+		for (int y = 0; y < 4; ++y) {
+			for (int x = 0; x < 4; ++x) {
 				values[x + y * 4] = (x == y) ? 1 : 0;
 			}
 		}
@@ -110,48 +110,50 @@ namespace glwl {
 		return values;
 	}
 
-	Matrix4 Matrix4::operator*(Matrix4 &rmat) {
+	Matrix4 Matrix4::operator*(Matrix4 & rmat) {
 		Matrix4 result = *this;
 
 		return (result *= rmat);
 	}
 
-	Matrix4 Matrix4::operator*=(Matrix4 &rmat) {
+	Matrix4 & Matrix4::operator*=(Matrix4 & rmat) {
 		Matrix4 temp = *this;
-
-		float * dp1 = temp.getData();
-		float * dp2 = rmat.getData();
-		float * pv = values - 1;
-
-		for (int y = 0; y < 4; y++) {
-			for (int x = 0; x < 4; x++) {
+		/*for (int y = 0; y < 4; ++y) {
+			for (int x = 0; x < 4; ++x) {
+				values[x + y * 4] = temp.values[x + 0 * 4] * rmat.values[0 + y * 4] +
+					temp.values[x + 1 * 4] * rmat.values[1 + y * 4] +
+					temp.values[x + 2 * 4] * rmat.values[2 + y * 4] +
+					temp.values[x + 3 * 4] * rmat.values[3 + y * 4];
+			}
+		}*/
+		
+		for (int y = 0; y < 4; ++y) {
+			for (int x = 0; x < 4; ++x) {
 				float val = 0;
-				float *p1 = dp1 + x;
-				float *p2 = dp2 + y * 4 - 1;
-				for (int i = 0; i < 4; i++) {
-					val += *(p1) * *(++p2);
-					p1 += 4;
+				for (int i = 0; i < 4; ++i) {
+					val += temp.values[x + i * 4] * rmat.values[i + y * 4];
 				}
-				*(++pv) = val;
+				values[x + y * 4] = val;
 			}
 		}
 
 		return *this;
 	}
 
-	Vector4 Matrix4::operator*(Vector4 &rvec) {
+	Vector4 Matrix4::operator*(Vector4 & rvec) {
 		Vector4 result;
-		for (int x = 0; x < 4; x++) {
+
+		float * rptr = result.getData();
+		float * vptr = rvec.getData();
+
+		for (int i = 0; i < 4; ++i) {
 			float val = 0;
-			float *p1, *p2;
-			p1 = &getData()[x];
-			p2 = rvec.getData() - 1;
-			for (int i = 0; i < 4; i++) {
-				val += *(p1) * *(++p2);
-				p1 += 4;
+			for (int j = 0; j < 4; ++j) {
+				val += values[i + j * 4] * *(vptr + j);
 			}
-			result.setValue(x, val);
+			*(rptr + i) = val;
 		}
+
 		return result;
 	}
 }
