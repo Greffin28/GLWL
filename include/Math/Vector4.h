@@ -11,8 +11,6 @@
 #define DLLExports
 #endif
 
-#include <Math/Matrix4.h>
-
 namespace glwl {
 	class Vector4 {
 	private:
