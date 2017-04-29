@@ -1,4 +1,4 @@
-/ext_lib/
-/build/
+ext_lib
+build*
 
 *.bat
