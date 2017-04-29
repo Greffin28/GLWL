@@ -27,4 +27,11 @@ namespace glwl {
 		return values;
 	}
 
+	float Vector4::dot(Vector4 & lvec, Vector4 & rvec) {
+		return lvec.values[0] * rvec.values[0] +
+			lvec.values[1] * rvec.values[1] +
+			lvec.values[2] * rvec.values[2] +
+			lvec.values[3] * rvec.values[3];
+	}
+
 }

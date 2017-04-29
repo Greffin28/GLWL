@@ -11,6 +11,8 @@
 #define DLLExports
 #endif
 
+#include <Math/Matrix4.h>
+
 namespace glwl {
 	class Vector4 {
 	private:
@@ -23,6 +25,8 @@ namespace glwl {
 		DLLExports void setValue(int i, float val);
 		DLLExports float getValue(int i) const;
 		DLLExports float * getData();
+
+		DLLExports static float dot(Vector4 & lvec, Vector4 & rvec);
 	};
 }
 
