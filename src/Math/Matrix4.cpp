@@ -110,6 +110,17 @@ namespace glwl {
 		return values;
 	}
 
+	Matrix4 Matrix4::transpose(Matrix4 & mat) {
+		Matrix4 res = mat;
+		res.values[1] = mat.values[4];
+		res.values[2] = mat.values[8];
+		res.values[3] = mat.values[12];
+		res.values[6] = mat.values[9];
+		res.values[7] = mat.values[13];
+		res.values[11] = mat.values[14];
+		return res;
+	}
+
 	Matrix4 Matrix4::operator*(Matrix4 & rmat) {
 		Matrix4 result = *this;
 

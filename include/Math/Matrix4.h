@@ -34,6 +34,8 @@ namespace glwl {
 		DLLExports float getValue(int i);
 		DLLExports float * getData();
 
+		DLLExports Matrix4 transpose(Matrix4 & mat);
+
 		DLLExports Matrix4 operator*(Matrix4 & rmat);
 		DLLExports Matrix4 & operator*=(Matrix4 & rmat);
 		DLLExports Vector4 operator*(Vector4 & rvec);
