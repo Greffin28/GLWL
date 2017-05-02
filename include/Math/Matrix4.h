@@ -32,12 +32,28 @@ namespace glwl {
 		DLLExports float getValue(int i);
 		DLLExports float * getData();
 
-		DLLExports Matrix4 transpose(Matrix4 & mat);
+		DLLExports static Matrix4 transpose(Matrix4 & mat);
 
+		DLLExports Matrix4 operator+();
+		DLLExports Matrix4 operator-();
+
+		DLLExports Matrix4 operator+(Matrix4 & rmat);
+		DLLExports Matrix4 operator-(Matrix4 & rmat);
 		DLLExports Matrix4 operator*(Matrix4 & rmat);
+		DLLExports Matrix4 operator*(float value);
+
+		DLLExports Matrix4 & operator+=(Matrix4 & rmat);
+		DLLExports Matrix4 & operator-=(Matrix4 & rmat);
 		DLLExports Matrix4 & operator*=(Matrix4 & rmat);
+		DLLExports Matrix4 & operator*=(float value);
+
 		DLLExports Vector4 operator*(Vector4 & rvec);
+
+		DLLExports friend Matrix4 operator*(float value, Matrix4 & rmat);
 	};
+
+	Matrix4 operator*(float value, Matrix4 & rmat);
+
 }
 
 #endif

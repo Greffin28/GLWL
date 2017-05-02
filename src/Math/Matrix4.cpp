@@ -113,20 +113,66 @@ namespace glwl {
 	}
 
 	Matrix4 Matrix4::transpose(Matrix4 & mat) {
-		Matrix4 res = mat;
-		res.values[1] = mat.values[4];
-		res.values[2] = mat.values[8];
-		res.values[3] = mat.values[12];
-		res.values[6] = mat.values[9];
-		res.values[7] = mat.values[13];
-		res.values[11] = mat.values[14];
-		return res;
+		Matrix4 result = mat;
+		result.values[1] = mat.values[4];
+		result.values[2] = mat.values[8];
+		result.values[3] = mat.values[12];
+		result.values[6] = mat.values[9];
+		result.values[7] = mat.values[13];
+		result.values[11] = mat.values[14];
+		return result;
+	}
+
+	Matrix4 Matrix4::operator+() {
+		return *this;
+	}
+
+	Matrix4 Matrix4::operator-() {
+		Matrix4 result = *this;
+		for (int i = 0; i < 16; ++i) {
+			result.values[i] = -result.values[i];
+		}
+		return result;
+	}
+
+	Matrix4 Matrix4::operator+(Matrix4 & rmat) {
+		Matrix4 result = *this;
+
+		return (result += rmat);
+	}
+
+	Matrix4 Matrix4::operator-(Matrix4 & rmat) {
+		Matrix4 result = *this;
+
+		return (result -= rmat);
 	}
 
 	Matrix4 Matrix4::operator*(Matrix4 & rmat) {
 		Matrix4 result = *this;
 
 		return (result *= rmat);
+	}
+
+	Matrix4 Matrix4::operator*(float value) {
+		Matrix4 result = *this;
+
+		return (result *= value);
+	}
+
+	Matrix4 & Matrix4::operator+=(Matrix4 & rmat) {
+		for (int i = 0; i < 16; ++i) {
+			values[i] += rmat.values[i];
+		}
+
+		return *this;
+	}
+
+	Matrix4 & Matrix4::operator-=(Matrix4 & rmat) {
+		for (int i = 0; i < 16; ++i) {
+			values[i] -= rmat.values[i];
+		}
+
+		return *this;
 	}
 
 	Matrix4 & Matrix4::operator*=(Matrix4 & rmat) {
@@ -153,6 +199,14 @@ namespace glwl {
 		return *this;
 	}
 
+	Matrix4 & Matrix4::operator*=(float value) {
+		for (int i = 0; i < 16; ++i) {
+			values[i] *= value;
+		}
+
+		return *this;
+	}
+
 	Vector4 Matrix4::operator*(Vector4 & rvec) {
 		Vector4 result;
 
@@ -169,4 +223,15 @@ namespace glwl {
 
 		return result;
 	}
+
+	Matrix4 operator*(float value, Matrix4 & rmat) {
+		Matrix4 result = rmat;
+
+		for (int i = 0; i < 16; ++i) {
+			result.values[i] *= value;
+		}
+
+		return result;
+	}
+
 }
