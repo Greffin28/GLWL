@@ -11,8 +11,6 @@
 #define DLLExports
 #endif
 
-#include <cmath>
-
 #define PI 3.1415926535f
 
 namespace glwl {

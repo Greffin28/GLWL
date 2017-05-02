@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Math/Matrix4.h"
 #include "Math/Vector4.h"
 

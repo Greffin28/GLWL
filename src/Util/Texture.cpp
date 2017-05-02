@@ -1,4 +1,5 @@
 #include "Util/Texture.h"
+#include "Util/Image.h"
 
 namespace glwl {
 

@@ -13,9 +13,8 @@
 
 #include <GL/glew.h>
 
-#include "Image.h"
-
 namespace glwl {
+	class Image;
 	class Texture {
 	private:
 		GLuint tex;

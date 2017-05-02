@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+
 #include "Util/Shader.h"
 
 namespace glwl {
