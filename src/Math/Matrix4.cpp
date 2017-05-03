@@ -227,11 +227,7 @@ namespace glwl {
 	Matrix4 operator*(float value, Matrix4 & rmat) {
 		Matrix4 result = rmat;
 
-		for (int i = 0; i < 16; ++i) {
-			result.values[i] *= value;
-		}
-
-		return result;
+		return (result *= value);
 	}
 
 }
