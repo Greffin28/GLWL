@@ -21,10 +21,19 @@ namespace glwl {
 		DLLExports Vector4(float x, float y, float z, float w = 1.0f);
 
 		DLLExports void setValue(int i, float val);
-		DLLExports float getValue(int i) const;
+		DLLExports float getValue(int i);
 		DLLExports float * getData();
 
 		DLLExports static float dot(Vector4 & lvec, Vector4 & rvec);
+
+		DLLExports Vector4 operator+();
+		DLLExports Vector4 operator-();
+
+		DLLExports Vector4 operator+(Vector4 & rvec);
+		DLLExports Vector4 operator-(Vector4 & rvec);
+
+		DLLExports Vector4 & operator+=(Vector4 & rvec);
+		DLLExports Vector4 & operator-=(Vector4 & rvec);
 	};
 }
 

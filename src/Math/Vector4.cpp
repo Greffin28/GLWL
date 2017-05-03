@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Math/Vector4.h"
 
 namespace glwl {
@@ -18,7 +20,7 @@ namespace glwl {
 		values[i] = val;
 	}
 
-	float Vector4::getValue(int i) const {
+	float Vector4::getValue(int i) {
 		if (i < 0 || i >= 4) return 0;
 		return values[i];
 	}
@@ -32,6 +34,48 @@ namespace glwl {
 			lvec.values[1] * rvec.values[1] +
 			lvec.values[2] * rvec.values[2] +
 			lvec.values[3] * rvec.values[3];
+	}
+
+	Vector4 Vector4::operator+() {
+		return *this;
+	}
+
+	Vector4 Vector4::operator-() {
+		Vector4 result = *this;
+
+		for (int i = 0; i < 4; ++i) {
+			result.values[i] = -result.values[i];
+		}
+
+		return result;
+	}
+
+	Vector4 Vector4::operator+(Vector4 & rvec) {
+		Vector4 result = *this;
+
+		return (result += rvec);
+	}
+
+	Vector4 Vector4::operator-(Vector4 & rvec) {
+		Vector4 result = *this;
+
+		return (result -= rvec);
+	}
+
+	Vector4 & Vector4::operator+=(Vector4 & rvec) {
+		for (int i = 0; i < 4; ++i) {
+			values[i] += rvec.values[i];
+		}
+
+		return *this;
+	}
+
+	Vector4 & Vector4::operator-=(Vector4 & rvec) {
+		for (int i = 0; i < 4; ++i) {
+			values[i] -= rvec.values[i];
+		}
+
+		return *this;
 	}
 
 }
