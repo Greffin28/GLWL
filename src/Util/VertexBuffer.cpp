@@ -3,6 +3,10 @@
 namespace glwl {
 
 	VertexBuffer::VertexBuffer() {
+		
+	}
+
+	void VertexBuffer::init() {
 		glGenBuffers(1, &vbo);
 	}
 

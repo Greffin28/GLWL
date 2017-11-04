@@ -3,6 +3,10 @@
 namespace glwl {
 
 	VertexArray::VertexArray() {
+		
+	}
+
+	void VertexArray::init() {
 		glGenVertexArrays(1, &vao);
 	}
 

@@ -20,6 +20,8 @@ namespace glwl {
 	public:
 		DLLExports VertexBuffer();
 
+		DLLExports void init();
+
 		DLLExports void bind(GLenum target);
 		DLLExports static void unbind(GLenum target);
 

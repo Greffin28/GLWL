@@ -5,6 +5,10 @@
 namespace glwl {
 
 	FrameBuffer::FrameBuffer() {
+		
+	}
+
+	void FrameBuffer::init() {
 		glGenFramebuffers(1, &fbo);
 	}
 

@@ -19,7 +19,9 @@ namespace glwl {
 		GLuint vao;
 	public:
 		DLLExports VertexArray();
-			
+		
+		DLLExports void init();
+
 		DLLExports void bind();
 		DLLExports static void unbind();
 		

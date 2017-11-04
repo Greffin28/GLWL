@@ -4,6 +4,10 @@
 namespace glwl {
 
 	Texture::Texture() {
+		
+	}
+
+	void Texture::init() {
 		glGenTextures(1, &tex);
 
 		minFilter = GL_LINEAR_MIPMAP_NEAREST;

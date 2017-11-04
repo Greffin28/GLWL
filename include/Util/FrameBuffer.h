@@ -24,6 +24,8 @@ namespace glwl {
 	public:
 		DLLExports FrameBuffer();
 
+		DLLExports void init();
+
 		DLLExports void setUp(int width, int height, bool depth = false);
 
 		DLLExports void bind();
