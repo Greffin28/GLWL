@@ -11,6 +11,8 @@
 #define DLLExports
 #endif
 
+#include <string>
+
 #include <GL/glew.h>
 
 namespace glwl {
