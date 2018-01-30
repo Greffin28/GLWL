@@ -1,5 +1,4 @@
-#ifndef _GLWL_FRAME_BUFFER_H_
-#define _GLWL_FRAME_BUFFER_H_
+#pragma once
 
 #ifdef _WIN32
 	#ifdef GLWL_EXPORTS
@@ -36,5 +35,3 @@ namespace glwl {
 		DLLExports ~FrameBuffer();
 	};
 }
-
-#endif

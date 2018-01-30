@@ -1,5 +1,4 @@
-#ifndef _GLWL_SHADER_H_
-#define _GLWL_SHADER_H_
+#pragma once
 
 #ifdef _WIN32
 	#ifdef GLWL_EXPORTS
@@ -35,5 +34,3 @@ namespace glwl {
 		DLLExports ~Shader();
 	};
 }
-
-#endif

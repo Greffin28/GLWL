@@ -1,5 +1,4 @@
-#ifndef _GOGLL_VEC4_H_
-#define _GOGLL_VEC4_H_
+#pragma once
 
 #ifdef _WIN32
 	#ifdef GLWL_EXPORTS

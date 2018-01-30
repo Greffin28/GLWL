@@ -1,5 +1,4 @@
-#ifndef _GLWL_VERTEX_BUFFER_H_
-#define _GLWL_VERTEX_BUFFER_H_
+#pragma once
 
 #ifdef _WIN32
 	#ifdef GLWL_EXPORTS
@@ -30,5 +29,3 @@ namespace glwl {
 		DLLExports ~VertexBuffer();
 	};
 }
-
-#endif

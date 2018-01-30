@@ -1,5 +1,4 @@
-#ifndef _GLWL_IMAGE_H_
-#define _GLWL_IMAGE_H_
+#pragma once
 
 #ifdef _WIN32
 	#ifdef GLWL_EXPORTS
@@ -50,5 +49,3 @@ namespace glwl {
 		DLLExports uint8_t * getData();
 	};
 }
-
-#endif

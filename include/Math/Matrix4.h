@@ -1,5 +1,4 @@
-#ifndef _GLWL_MAT4_H_
-#define _GLWL_MAT4_H_
+#pragma once
 
 #ifdef _WIN32
 	#ifdef GLWL_EXPORTS
@@ -55,5 +54,3 @@ namespace glwl {
 	Matrix4 operator*(float value, Matrix4 & rmat);
 
 }
-
-#endif
