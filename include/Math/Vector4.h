@@ -19,8 +19,16 @@ namespace glwl {
 		Vector4(float f);
 		Vector4(float x, float y, float z, float w = 1.0f);
 
-		void setValue(int i, float val);
-		float getValue(int i);
+		void setX(float x);
+		void setY(float y);
+		void setZ(float z);
+		void setW(float w);
+		void setVec(float x, float y, float z, float w = 1.0f);
+
+		float getX();
+		float getY();
+		float getZ();
+		float getW();
 		float * getData();
 
 		static float dot(Vector4 & lvec, Vector4 & rvec);
@@ -35,5 +43,3 @@ namespace glwl {
 		Vector4 & operator-=(Vector4 & rvec);
 	};
 }
-
-#endif

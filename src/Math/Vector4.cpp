@@ -5,7 +5,9 @@
 namespace glwl {
 
 	Vector4::Vector4(float f) {
-		values[0] = values[1] = values[2] = values[3] = f;
+		for (int i = 0; i < 4; ++i) {
+			values[i] = f;
+		}
 	}
 
 	Vector4::Vector4(float x, float y, float z, float w) {
@@ -15,14 +17,40 @@ namespace glwl {
 		values[3] = w;
 	}
 
-	void Vector4::setValue(int i, float val) {
-		if (i < 0 || i >= 4) return;
-		values[i] = val;
+	void Vector4::setX(float x) {
+		values[0] = x;
 	}
 
-	float Vector4::getValue(int i) {
-		if (i < 0 || i >= 4) return 0;
-		return values[i];
+	void Vector4::setY(float y) {
+		values[1] = y;
+	}
+
+	void Vector4::setZ(float z) {
+		values[2] = z;
+	}
+
+	void Vector4::setW(float w) {
+		values[3] = w;
+	}
+
+	void Vector4::setVec(float x, float y, float z, float w) {
+		*this = Vector4(x, y, z, w);
+	}
+
+	float Vector4::getX() {
+		return values[0];
+	}
+
+	float Vector4::getY() {
+		return values[1];
+	}
+
+	float Vector4::getZ() {
+		return values[2];
+	}
+
+	float Vector4::getW() {
+		return values[3];
 	}
 
 	float * Vector4::getData() {
