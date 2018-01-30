@@ -11,28 +11,28 @@
 #endif
 
 namespace glwl {
-	class Vector4 {
+	class DLLExports Vector4 {
 	private:
 		float values[4];
 	public:
-		DLLExports Vector4() {};
-		DLLExports Vector4(float f);
-		DLLExports Vector4(float x, float y, float z, float w = 1.0f);
+		Vector4() {};
+		Vector4(float f);
+		Vector4(float x, float y, float z, float w = 1.0f);
 
-		DLLExports void setValue(int i, float val);
-		DLLExports float getValue(int i);
-		DLLExports float * getData();
+		void setValue(int i, float val);
+		float getValue(int i);
+		float * getData();
 
-		DLLExports static float dot(Vector4 & lvec, Vector4 & rvec);
+		static float dot(Vector4 & lvec, Vector4 & rvec);
 
-		DLLExports Vector4 operator+();
-		DLLExports Vector4 operator-();
+		Vector4 operator+();
+		Vector4 operator-();
 
-		DLLExports Vector4 operator+(Vector4 & rvec);
-		DLLExports Vector4 operator-(Vector4 & rvec);
+		Vector4 operator+(Vector4 & rvec);
+		Vector4 operator-(Vector4 & rvec);
 
-		DLLExports Vector4 & operator+=(Vector4 & rvec);
-		DLLExports Vector4 & operator-=(Vector4 & rvec);
+		Vector4 & operator+=(Vector4 & rvec);
+		Vector4 & operator-=(Vector4 & rvec);
 	};
 }
 

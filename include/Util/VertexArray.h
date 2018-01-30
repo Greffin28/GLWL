@@ -13,19 +13,19 @@
 #include <GL/glew.h>
 
 namespace glwl {
-	class VertexArray {
+	class DLLExports VertexArray {
 	private:
 		GLuint vao;
 	public:
-		DLLExports VertexArray();
+		VertexArray();
 		
-		DLLExports void init();
+		void init();
 
-		DLLExports void bind();
-		DLLExports static void unbind();
+		void bind();
+		static void unbind();
 		
-		DLLExports GLuint getVAO();
+		GLuint getVAO();
 		
-		DLLExports ~VertexArray();
+		~VertexArray();
 	};
 }

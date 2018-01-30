@@ -13,19 +13,19 @@
 #include <GL/glew.h>
 
 namespace glwl {
-	class VertexBuffer {
+	class DLLExports VertexBuffer {
 	private:
 		GLuint vbo;
 	public:
-		DLLExports VertexBuffer();
+		VertexBuffer();
 
-		DLLExports void init();
+		void init();
 
-		DLLExports void bind(GLenum target);
-		DLLExports static void unbind(GLenum target);
+		void bind(GLenum target);
+		static void unbind(GLenum target);
 
-		DLLExports GLuint getVBO();
+		GLuint getVBO();
 
-		DLLExports ~VertexBuffer();
+		~VertexBuffer();
 	};
 }

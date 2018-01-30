@@ -15,22 +15,22 @@
 #include <GL/glew.h>
 
 namespace glwl {
-	class Shader {
+	class DLLExports Shader {
 	private:
 		GLuint program, vShader, fShader;
 
 		std::string vSource, fSource;
 		const GLchar *glvSource, *glfSource;
 	public:
-		DLLExports void loadvf(std::string vPath, std::string fPath);
-		DLLExports void compilevf();
-		DLLExports void setProgramvf();
+		void loadvf(std::string vPath, std::string fPath);
+		void compilevf();
+		void setProgramvf();
 
-		DLLExports void useProgram();
-		DLLExports static void unuseProgram();
+		void useProgram();
+		static void unuseProgram();
 
-		DLLExports GLuint getProgram();
+		GLuint getProgram();
 
-		DLLExports ~Shader();
+		~Shader();
 	};
 }

@@ -14,7 +14,7 @@
 
 namespace glwl {
 	class Image;
-	class Texture {
+	class DLLExports Texture {
 	private:
 		GLuint tex;
 
@@ -23,22 +23,21 @@ namespace glwl {
 		GLenum warpS;
 		GLenum warpT;
 	public:
-		DLLExports Texture();
+		Texture();
 
-		DLLExports void init();
+		void init();
 
-		DLLExports void blankTexture(int width, int height);
-		DLLExports void setImage2D(Image image);
+		void blankTexture(int width, int height);
+		void setImage2D(Image image);
 
-		DLLExports void bind();
-		DLLExports static void unbind();
+		void bind();
+		static void unbind();
 
-		DLLExports void setMinFilter(GLenum mode);
-		DLLExports void setMagFilter(GLenum mode);
-		DLLExports void setWarpS(GLenum mode);
-		DLLExports void setWarpT(GLenum mode);
-		DLLExports GLuint getID();
-
-		DLLExports ~Texture();
+		void setMinFilter(GLenum mode);
+		void setMagFilter(GLenum mode);
+		void setWarpS(GLenum mode);
+		void setWarpT(GLenum mode);
+		
+		~Texture();
 	};
 }
