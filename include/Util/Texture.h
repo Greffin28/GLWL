@@ -37,6 +37,8 @@ namespace glwl {
 		void setMagFilter(GLenum mode);
 		void setWarpS(GLenum mode);
 		void setWarpT(GLenum mode);
+
+		GLuint getID();
 		
 		~Texture();
 	};
