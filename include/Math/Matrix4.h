@@ -1,13 +1,13 @@
 #pragma once
 
 #ifdef _WIN32
-	#ifdef GLWL_EXPORTS
-		#define DLLExports __declspec(dllexport)
-	#else
-		#define DLLExports __declspec(dllimport)
-	#endif
+#	ifdef GLWL_EXPORTS
+#		define DLLExports __declspec(dllexport)
+#	else
+#		define DLLExports __declspec(dllimport)
+#	endif
 #else
-	#define DLLExports
+#	define DLLExports
 #endif
 
 #define PI 3.1415926535f
@@ -48,7 +48,7 @@ namespace glwl {
 
 		Vector4 operator*(Vector4 & rvec);
 
-		friend Matrix4 operator*(float value, Matrix4 & rmat);
+		DLLExports friend Matrix4 operator*(float value, Matrix4 & rmat);
 	};
 
 	Matrix4 operator*(float value, Matrix4 & rmat);
