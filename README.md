@@ -1,7 +1,7 @@
 # OpenGL Wrapper and Library
-This library is about reinventing the wheel. If you're looking for the best OpenGL wrapper or library, you're in the wrong place. There are probably a lot of better library out there.
+This library is all about reinventing the wheel. This is my way to learn things that i'm interested in. Progress is slow, but it is still going.
 
-This is my custom library to ease myself using OpenGL. This library is based on GLEW library and use C++ as it's language.
+This is also made to ease myself when using OpenGL. This library is based on GLEW library and use C++ as its language.
 
 ## Build
 ### What you need
@@ -23,7 +23,7 @@ Make sure, there is a folder called `include` and there are 3 source files in `e
 ##### Building GLEW
 Now, go to `ext_lib/glew/build/vc12` which will contain the Visual Studio solution for VS. If you use higher VS version than the solution, just click OK later when asked to upgrade. When it's opened, change the Solution Configuration from Debug to Release. Then press `CTRL+SHIFT+B` to start the build process.
 ##### Building GLWL
-Next, go back to `GLWL` folder. Make a new folder called `build` then open it, this is optional. From there, run `cmake ..` (provided that your default compiler is MSVC). After it run successfully, open up the GLWL solution and press `CTRL+SHIFT+B`. The files will be in `lib` folder.
+Next, go back to `GLWL` folder. Make a new folder called `build` then open it, this is optional. From there, run `cmake ..` (provided that your default compiler is MSVC). After it run successfully, open up the GLWL solution, change the Solution Configuration from Debuh to Release, and press `CTRL+SHIFT+B` to build. The files will be in `lib` folder.
 
 ### Fedora
 #### Make-GCC
