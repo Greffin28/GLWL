@@ -52,7 +52,7 @@ namespace glwl {
 
 	Quat & Quat::operator*=(Quat & rquat) {
 		return (*this = Quat(
-			scalar * rquat.scalar + Vector3::dot(vector, rquat.vector),
+			scalar * rquat.scalar - Vector3::dot(vector, rquat.vector),
 			scalar * rquat.vector + rquat.scalar * vector + Vector3::cross(vector, rquat.vector)
 		));
 	}
