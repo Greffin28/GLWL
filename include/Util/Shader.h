@@ -1,13 +1,13 @@
 #pragma once
 
 #ifdef _WIN32
-	#ifdef GLWL_EXPORTS
-		#define DLLExports __declspec(dllexport)
-	#else
-		#define DLLExports __declspec(dllimport)
-	#endif
+#	ifdef GLWL_EXPORTS
+#		define DLLExports __declspec(dllexport)
+#	else
+#		define DLLExports __declspec(dllimport)
+#	endif
 #else
-	#define DLLExports
+#	define DLLExports
 #endif
 
 #include <string>

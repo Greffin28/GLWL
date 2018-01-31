@@ -1,13 +1,13 @@
 #pragma once
 
 #ifdef _WIN32
-	#ifdef GLWL_EXPORTS
-		#define DLLExports __declspec(dllexport)
-	#else
-		#define DLLExports __declspec(dllimport)
-	#endif
+#	ifdef GLWL_EXPORTS
+#		define DLLExports __declspec(dllexport)
+#	else
+#		define DLLExports __declspec(dllimport)
+#	endif
 #else
-	#define DLLExports
+#	define DLLExports
 #endif
 
 namespace glwl {
@@ -19,8 +19,8 @@ namespace glwl {
 		Vector3(float f);
 		Vector3(float x, float y, float z);
 
-		static float dot(Vector3 lvec, Vector3 rvec);
-		static Vector3 cross(Vector3 lvec, Vector3 rvec);
+		static float dot(Vector3 & lvec, Vector3 & rvec);
+		static Vector3 cross(Vector3 & lvec, Vector3 & rvec);
 
 		void setX(float x);
 		void setY(float y);
@@ -35,10 +35,16 @@ namespace glwl {
 		Vector3 operator+();
 		Vector3 operator-();
 
-		Vector3 operator+(Vector3 & rvec);
-		Vector3 operator-(Vector3 & rvec);
-
 		Vector3 & operator+=(Vector3 & rvec);
 		Vector3 & operator-=(Vector3 & rvec);
+		Vector3 & operator*=(float f);
+
+		Vector3 operator+(Vector3 & rvec);
+		Vector3 operator-(Vector3 & rvec);
+		Vector3 operator*(float f);
+
+		DLLExports friend Vector3 operator*(float f, Vector3 & rvec);
 	};
+
+	Vector3 operator*(float f, Vector3 & rvec);
 }
