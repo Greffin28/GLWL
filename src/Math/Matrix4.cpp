@@ -6,11 +6,18 @@
 namespace glwl {
 
 	Matrix4::Matrix4() {
-		for (int y = 0; y < 4; ++y) {
-			for (int x = 0; x < 4; ++x) {
-				values[x + y * 4] = (x == y) ? 1 : 0;
-			}
-		}
+		float values[] = {
+			1, 0, 0, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			0, 0, 0, 1
+		};
+
+		setValues(values);
+	}
+
+	Matrix4::Matrix4(float * values) {
+		setValues(values);
 	}
 
 	Matrix4 Matrix4::identity() {
@@ -18,66 +25,79 @@ namespace glwl {
 	}
 
 	Matrix4 Matrix4::translate(float x, float y, float z) {
-		Matrix4 mat;
-		
-		mat.setValue(0 + 3 * 4, x);
-		mat.setValue(1 + 3 * 4, y);
-		mat.setValue(2 + 3 * 4, z);
+		float values[] = {
+			1, 0, 0, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			x, y, z, 1
+		};
 
-		return mat;
+		return Matrix4(values);
 	}
 	Matrix4 Matrix4::scale(float x, float y, float z) {
-		Matrix4 mat;
+		float values[] = {
+			x, 0, 0, 0,
+			0, y, 0, 0,
+			0, 0, z, 0,
+			0, 0, 0, 1
+		};
 
-		mat.setValue(0 + 0 * 4, x);
-		mat.setValue(1 + 1 * 4, y);
-		mat.setValue(2 + 2 * 4, z);
-
-		return mat;
+		return Matrix4(values);
 	}
 
 	Matrix4 Matrix4::rotation(char axis, float angle) {
-		Matrix4 mat;
+		angle *= PI / 180.0f;
 
-		angle = angle * PI / 180.0f;
+		float cos = std::cos(angle);
+		float sin = std::sin(angle);
 
 		if (axis == 'Z' || axis == 'z') {
-			mat.setValue(0 + 0 * 4, cos(angle));
-			mat.setValue(0 + 1 * 4, -sin(angle));
-			mat.setValue(1 + 0 * 4, sin(angle));
-			mat.setValue(1 + 1 * 4, cos(angle));
+			float values[] = {
+				cos	, sin	, 0, 0,
+				-sin, cos	, 0, 0,
+				0	, 0		, 1, 0,
+				0	, 0		, 0, 1
+			};
+
+			return Matrix4(values);
 		} else if (axis == 'Y' || axis == 'y') {
-			mat.setValue(0 + 0 * 4, cos(angle));
-			mat.setValue(0 + 2 * 4, -sin(angle));
-			mat.setValue(2 + 0 * 4, sin(angle));
-			mat.setValue(2 + 2 * 4, cos(angle));
+			float values[] = {
+				cos	, 0, sin, 0,
+				0	, 1, 0	, 0,
+				-sin, 0, cos, 0,
+				0	, 0, 0	, 1
+			};
+
+			return Matrix4(values);
 		} else if (axis == 'X' || axis == 'x') {
-			mat.setValue(1 + 1 * 4, cos(angle));
-			mat.setValue(1 + 2 * 4, sin(angle));
-			mat.setValue(2 + 1 * 4, -sin(angle));
-			mat.setValue(2 + 2 * 4, cos(angle));
+			float values[] = {
+				1, 0	, 0		, 0,
+				0, cos	, -sin	, 0,
+				0, sin	, cos	, 0,
+				0, 0	, 0		, 1
+			};
+
+			return Matrix4(values);
 		}
 
-		return mat;
+		return Matrix4();
 	}
 
 	Matrix4 Matrix4::ortho(float l, float t, float r, float b, float n, float f) {
-		Matrix4 mat;
+		float values[] = {
+			2.0f / (r - l)		, 0					, 0					, 0,
+			0					, -2.0f / (b - t)	, 0					, 0,
+			0					, 0					, 2.0f / (f - n)	, 0,
+			-(r + l) / (r - l)	, (b + t) / (b - t)	, -(f + n) / (f - n), 1
+		};
 
-		mat.setValue(0 + 0 * 4, 2.0f / (r - l));
-		mat.setValue(0 + 3 * 4, -(r + l) / (r - l));
-		mat.setValue(1 + 1 * 4, -2.0f / (b - t));
-		mat.setValue(1 + 3 * 4, (b + t) / (b - t));
-		mat.setValue(2 + 2 * 4, 2.0f / (f - n));
-		mat.setValue(2 + 3 * 4, -(f + n) / (f - n));
-
-		return mat;
+		return Matrix4(values);
 	}
 
 	Matrix4 Matrix4::perspective(int width, int height, float fov, float n, float f) {
 		Matrix4 mat;
 
-		fov = 0.5f * fov * PI / 180.0f;
+		fov *= 0.5f * PI / 180.0f;
 		float ratio = 1.0f * width / height;
 		
 		float halfScreenNear = n * tan(fov);
@@ -86,16 +106,34 @@ namespace glwl {
 		float t = halfScreenNear / ratio;
 		float b = -t;
 
-		mat.setValue(0 + 0 * 4, 2.0f * n / (r - l));
-		mat.setValue(0 + 2 * 4, -(r + l) / (r - l));
-		mat.setValue(1 + 1 * 4, -2.0f * n / (b - t));
-		mat.setValue(1 + 2 * 4, (b + t) / (b - t));
-		mat.setValue(2 + 2 * 4, (f + n) / (f - n));
-		mat.setValue(2 + 3 * 4, -2.0f * n * f / (f - n));
-		mat.setValue(3 + 2 * 4, 1.0f);
-		mat.setValue(3 + 3 * 4, 0.0f);
+		float values[] = {
+			2.0f * n / (r - l)	, 0						, 0							, 0,
+			0					, -2.0f * n / (b - t)	, 0							, 0,
+			-(r + l) / (r - l)	, (b + t) / (b - t)		, (f + n) / (f - n)			, 1,
+			0					, 0						, -2.0f * n * f / (f - n)	, 0
+		};
 
-		return mat;
+		return Matrix4(values);
+	}
+
+	Matrix4 & Matrix4::transpose() {
+		Matrix4 temp = *this;
+
+		setValue(1, 0, temp.getValue(0, 1));
+		setValue(2, 0, temp.getValue(0, 2));
+		setValue(3, 0, temp.getValue(0, 3));
+		setValue(2, 1, temp.getValue(1, 2));
+		setValue(3, 1, temp.getValue(1, 3));
+		setValue(3, 2, temp.getValue(2, 3));
+
+		setValue(0, 1, temp.getValue(1, 0));
+		setValue(0, 2, temp.getValue(2, 0));
+		setValue(0, 3, temp.getValue(3, 0));
+		setValue(1, 2, temp.getValue(2, 1));
+		setValue(1, 3, temp.getValue(3, 1));
+		setValue(2, 3, temp.getValue(3, 2));
+
+		return *this;
 	}
 
 	void Matrix4::setValue(int i, float val) {
@@ -103,24 +141,35 @@ namespace glwl {
 		values[i] = val;
 	}
 
+	void Matrix4::setValue(int x, int y, float val) {
+		if (x < 0 || x >= 4 || y < 0 || y >= 4) return;
+		values[x + y * 4] = val;
+	}
+
+	void Matrix4::setValues(float * values) {
+		for (int i = 0; i < 16; ++i) {
+			this->values[i] = values[i];
+		}
+	}
+
 	float Matrix4::getValue(int i) {
-		if (i < 0 || i >= 16) return 0.0f;
+		if (i < 0 || i >= 16) return 0;
 		return values[i];
+	}
+
+	float Matrix4::getValue(int x, int y) {
+		if (x < 0 || x >= 4 || y < 0 || y >= 4) return 0;
+		return values[x + y * 4];
 	}
 
 	float * Matrix4::getData() {
 		return values;
 	}
 
-	Matrix4 Matrix4::transpose(Matrix4 & mat) {
-		Matrix4 result = mat;
-		result.values[1] = mat.values[4];
-		result.values[2] = mat.values[8];
-		result.values[3] = mat.values[12];
-		result.values[6] = mat.values[9];
-		result.values[7] = mat.values[13];
-		result.values[11] = mat.values[14];
-		return result;
+	Matrix4 Matrix4::getTranspose() {
+		Matrix4 mat = *this;
+
+		return mat.transpose();
 	}
 
 	Matrix4 Matrix4::operator+() {

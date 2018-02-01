@@ -19,6 +19,7 @@ namespace glwl {
 		float values[16];
 	public:
 		Matrix4();
+		Matrix4(float * values);
 
 		static Matrix4 identity();
 		static Matrix4 translate(float x, float y, float z);
@@ -27,11 +28,16 @@ namespace glwl {
 		static Matrix4 ortho(float l, float t, float r, float b, float n, float f);
 		static Matrix4 perspective(int width, int height, float fov, float n, float f);
 
-		void setValue(int i, float val);
-		float getValue(int i);
-		float * getData();
+		Matrix4 & transpose();
 
-		static Matrix4 transpose(Matrix4 & mat);
+		void setValue(int i, float val);
+		void setValue(int x, int y, float val);
+		void setValues(float * values);
+
+		float getValue(int i);
+		float getValue(int x, int y);
+		float * getData();
+		Matrix4 getTranspose();
 
 		Matrix4 operator+();
 		Matrix4 operator-();
