@@ -11,9 +11,11 @@
 #endif
 
 #include "Math/Vector3.h"
+#include "Math/Matrix4.h"
 
 namespace glwl {
-	class Quat {
+	class Matrix4;
+	class DLLExports Quat {
 	private:
 		float scalar;
 		Vector3 vector;
@@ -21,6 +23,8 @@ namespace glwl {
 		Quat() {};
 		Quat(float scalar, Vector3 & vector);
 		Quat(float scalar, float x, float y, float z);
+		Quat(Vector3 & axis, float angle);
+		Quat(Vector3 & angles);
 
 		void setScalar(float scalar);
 		void setVector(Vector3 & vector);
@@ -29,6 +33,7 @@ namespace glwl {
 		float getScalar();
 		Vector3 getVector();
 		Quat getStar();
+		Matrix4 getMatrix();
 
 		Quat operator+();
 		Quat operator-();
