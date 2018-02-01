@@ -1,5 +1,7 @@
 #include "Math/Vector3.h"
 
+#include <cmath>
+
 namespace glwl {
 	Vector3::Vector3(float f) {
 		for (int i = 0; i < 3; ++i) {
@@ -25,6 +27,16 @@ namespace glwl {
 			lvec.values[2] * rvec.values[0] - rvec.values[2] * lvec.values[0],
 			lvec.values[0] * rvec.values[1] - rvec.values[0] * lvec.values[1]
 		);
+	}
+
+	Vector3 & Vector3::normalize() {
+		float length = getLength();
+
+		for (int i = 0; i < 3; ++i) {
+			values[i] /= length;
+		}
+
+		return *this;
 	}
 
 	void Vector3::setX(float x) {
@@ -57,6 +69,21 @@ namespace glwl {
 
 	float * Vector3::getData() {
 		return values;
+	}
+
+	float Vector3::getLength() {
+		float toSqrt = 0;
+		for (int i = 0; i < 3; ++i) {
+			toSqrt += values[i] * values[i];
+		}
+
+		return std::sqrtf(toSqrt);
+	}
+
+	Vector3 Vector3::getNormalize() {
+		Vector3 result = *this;
+
+		return result.normalize();
 	}
 
 	Vector3 Vector3::operator+() {

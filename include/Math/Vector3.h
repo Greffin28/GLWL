@@ -22,6 +22,8 @@ namespace glwl {
 		static float dot(Vector3 & lvec, Vector3 & rvec);
 		static Vector3 cross(Vector3 & lvec, Vector3 & rvec);
 
+		Vector3 & normalize();
+
 		void setX(float x);
 		void setY(float y);
 		void setZ(float z);
@@ -31,6 +33,8 @@ namespace glwl {
 		float getY();
 		float getZ();
 		float * getData();
+		float getLength();
+		Vector3 getNormalize();
 
 		Vector3 operator+();
 		Vector3 operator-();
@@ -46,5 +50,5 @@ namespace glwl {
 		DLLExports friend Vector3 operator*(float f, Vector3 & rvec);
 	};
 
-	Vector3 operator*(float f, Vector3 & rvec);
+	DLLExports Vector3 operator*(float f, Vector3 & rvec);
 }

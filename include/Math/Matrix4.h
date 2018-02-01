@@ -51,6 +51,6 @@ namespace glwl {
 		DLLExports friend Matrix4 operator*(float value, Matrix4 & rmat);
 	};
 
-	Matrix4 operator*(float value, Matrix4 & rmat);
+	DLLExports Matrix4 operator*(float value, Matrix4 & rmat);
 
 }
