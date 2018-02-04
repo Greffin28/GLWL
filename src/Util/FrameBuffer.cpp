@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include <GL/glew.h>
+
 namespace glwl {
 
 	FrameBuffer::FrameBuffer() {
@@ -34,7 +36,7 @@ namespace glwl {
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 
-	GLuint FrameBuffer::getFBO() {
+	unsigned int FrameBuffer::getFBO() {
 		return fbo;
 	}
 

@@ -4,6 +4,8 @@
 
 #include "Util/Shader.h"
 
+#include <GL/glew.h>
+
 namespace glwl {
 
 	void Shader::loadvf(std::string vPath, std::string fPath) {
@@ -77,7 +79,7 @@ namespace glwl {
 		glUseProgram(0);
 	}
 
-	GLuint Shader::getProgram() {
+	unsigned int Shader::getProgram() {
 		return program;
 	}
 

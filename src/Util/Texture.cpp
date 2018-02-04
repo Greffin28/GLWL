@@ -1,6 +1,8 @@
 #include "Util/Texture.h"
 #include "Util/Image.h"
 
+#include <GL/glew.h>
+
 namespace glwl {
 
 	Texture::Texture() {
@@ -58,23 +60,23 @@ namespace glwl {
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void Texture::setMinFilter(GLenum mode) {
+	void Texture::setMinFilter(unsigned int mode) {
 		minFilter = mode;
 	}
 
-	void Texture::setMagFilter(GLenum mode) {
+	void Texture::setMagFilter(unsigned int mode) {
 		magFilter = mode;
 	}
 
-	void Texture::setWarpS(GLenum mode) {
+	void Texture::setWarpS(unsigned int mode) {
 		warpS = mode;
 	}
 
-	void Texture::setWarpT(GLenum mode) {
+	void Texture::setWarpT(unsigned int mode) {
 		warpT = mode;
 	}
 
-	GLuint Texture::getID() {
+	unsigned int Texture::getID() {
 		return tex;
 	}
 

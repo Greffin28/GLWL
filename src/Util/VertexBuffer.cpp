@@ -1,5 +1,7 @@
 #include "Util/VertexBuffer.h"
 
+#include <GL/glew.h>
+
 namespace glwl {
 
 	VertexBuffer::VertexBuffer() {
@@ -10,15 +12,15 @@ namespace glwl {
 		glGenBuffers(1, &vbo);
 	}
 
-	void VertexBuffer::bind(GLenum target) {
+	void VertexBuffer::bind(unsigned int target) {
 		glBindBuffer(target, vbo);
 	}
 
-	void VertexBuffer::unbind(GLenum target) {
+	void VertexBuffer::unbind(unsigned int target) {
 		glBindBuffer(target, 0);
 	}
 
-	GLuint VertexBuffer::getVBO() {
+	unsigned int VertexBuffer::getVBO() {
 		return vbo;
 	}
 

@@ -10,21 +10,19 @@
 #	define DLLExports
 #endif
 
-#include <GL/glew.h>
-
 namespace glwl {
 	class DLLExports VertexBuffer {
 	private:
-		GLuint vbo;
+		unsigned int vbo;
 	public:
 		VertexBuffer();
-
+		
 		void init();
 
-		void bind(GLenum target);
-		static void unbind(GLenum target);
+		void bind(unsigned int target);
+		static void unbind(unsigned int target);
 
-		GLuint getVBO();
+		unsigned int getVBO();
 
 		~VertexBuffer();
 	};

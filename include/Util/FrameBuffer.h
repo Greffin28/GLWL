@@ -10,16 +10,14 @@
 #	define DLLExports
 #endif
 
-#include <GL/glew.h>
-
 #include "Util/Texture.h"
 
 namespace glwl {
 	class DLLExports FrameBuffer {
 	private:
-		GLuint fbo;
+		unsigned int fbo;
 		Texture tex;
-		GLuint rbo;
+		unsigned int rbo;
 	public:
 		FrameBuffer();
 
@@ -30,7 +28,7 @@ namespace glwl {
 		void bind();
 		static void unbind();
 
-		GLuint getFBO();
+		unsigned int getFBO();
 
 		~FrameBuffer();
 	};

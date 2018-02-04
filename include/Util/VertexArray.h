@@ -10,12 +10,10 @@
 #	define DLLExports
 #endif
 
-#include <GL/glew.h>
-
 namespace glwl {
 	class DLLExports VertexArray {
 	private:
-		GLuint vao;
+		unsigned int vao;
 	public:
 		VertexArray();
 		
@@ -24,7 +22,7 @@ namespace glwl {
 		void bind();
 		static void unbind();
 		
-		GLuint getVAO();
+		unsigned int getVAO();
 		
 		~VertexArray();
 	};

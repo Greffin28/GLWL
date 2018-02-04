@@ -1,5 +1,7 @@
 #include <Util/VertexArray.h>
 
+#include <GL/glew.h>
+
 namespace glwl {
 
 	VertexArray::VertexArray() {
@@ -18,7 +20,7 @@ namespace glwl {
 		glBindVertexArray(0);
 	}
 
-	GLuint VertexArray::getVAO() {
+	unsigned int VertexArray::getVAO() {
 		return vao;
 	}
 

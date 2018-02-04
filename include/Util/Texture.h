@@ -10,18 +10,16 @@
 #	define DLLExports
 #endif
 
-#include <GL/glew.h>
-
 namespace glwl {
 	class Image;
 	class DLLExports Texture {
 	private:
-		GLuint tex;
+		unsigned int tex;
 
-		GLenum minFilter;
-		GLenum magFilter;
-		GLenum warpS;
-		GLenum warpT;
+		unsigned int minFilter;
+		unsigned int magFilter;
+		unsigned int warpS;
+		unsigned int warpT;
 	public:
 		Texture();
 
@@ -33,12 +31,12 @@ namespace glwl {
 		void bind();
 		static void unbind();
 
-		void setMinFilter(GLenum mode);
-		void setMagFilter(GLenum mode);
-		void setWarpS(GLenum mode);
-		void setWarpT(GLenum mode);
+		void setMinFilter(unsigned int mode);
+		void setMagFilter(unsigned int mode);
+		void setWarpS(unsigned int mode);
+		void setWarpT(unsigned int mode);
 
-		GLuint getID();
+		unsigned int getID();
 		
 		~Texture();
 	};
