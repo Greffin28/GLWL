@@ -11,6 +11,7 @@
 #endif
 
 namespace glwl {
+	class Shader;
 	class DLLExports VertexArray {
 	private:
 		unsigned int vao;
@@ -19,8 +20,10 @@ namespace glwl {
 		
 		void init();
 
+		void setVertexAttrib(Shader & shader, const char * varName, int count, unsigned int glVarType, int stride, int offset);
+
 		void bind();
-		static void unbind();
+		void unbind();
 		
 		unsigned int getVAO();
 		
