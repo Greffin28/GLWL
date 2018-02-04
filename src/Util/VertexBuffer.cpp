@@ -8,16 +8,21 @@ namespace glwl {
 		
 	}
 
-	void VertexBuffer::init() {
+	void VertexBuffer::init(unsigned int target) {
 		glGenBuffers(1, &vbo);
+		targetType = target;
 	}
 
-	void VertexBuffer::bind(unsigned int target) {
-		glBindBuffer(target, vbo);
+	void VertexBuffer::setData(int byteSize, const void * dataPtr, unsigned int glDrawMethod) {
+		glBufferData(targetType, byteSize, dataPtr, glDrawMethod);
 	}
 
-	void VertexBuffer::unbind(unsigned int target) {
-		glBindBuffer(target, 0);
+	void VertexBuffer::bind() {
+		glBindBuffer(targetType, vbo);
+	}
+
+	void VertexBuffer::unbind() {
+		glBindBuffer(targetType, 0);
 	}
 
 	unsigned int VertexBuffer::getVBO() {

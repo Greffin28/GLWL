@@ -14,13 +14,16 @@ namespace glwl {
 	class DLLExports VertexBuffer {
 	private:
 		unsigned int vbo;
+		unsigned int targetType;
 	public:
 		VertexBuffer();
 		
-		void init();
+		void init(unsigned int target);
 
-		void bind(unsigned int target);
-		static void unbind(unsigned int target);
+		void setData(int byteSize, const void * dataPtr, unsigned int glDrawMethod);
+
+		void bind();
+		void unbind();
 
 		unsigned int getVBO();
 
