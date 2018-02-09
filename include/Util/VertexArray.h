@@ -12,21 +12,21 @@
 
 namespace glwl {
 	class Shader;
-	class DLLExports VertexArray {
+	class VertexArray {
 	private:
 		unsigned int vao;
 	public:
-		VertexArray();
+		DLLExports VertexArray();
 		
-		void init();
+		DLLExports void init();
 
-		void setVertexAttrib(Shader & shader, const char * varName, int count, unsigned int glVarType, int stride, int offset);
+		DLLExports void setVertexAttrib(Shader & shader, const char * varName, int count, unsigned int glVarType, int stride, int offset);
 
-		void bind();
-		void unbind();
+		DLLExports void bind();
+		DLLExports void unbind();
 		
-		unsigned int getVAO();
+		DLLExports unsigned int getVAO();
 		
-		~VertexArray();
+		DLLExports ~VertexArray();
 	};
 }

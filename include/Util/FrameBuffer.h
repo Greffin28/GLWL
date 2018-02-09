@@ -13,23 +13,23 @@
 #include "Util/Texture.h"
 
 namespace glwl {
-	class DLLExports FrameBuffer {
+	class FrameBuffer {
 	private:
 		unsigned int fbo;
 		Texture tex;
 		unsigned int rbo;
 	public:
-		FrameBuffer();
+		DLLExports FrameBuffer();
 
-		void init();
+		DLLExports void init();
 
-		void setUp(int width, int height, bool depth = false);
+		DLLExports void setUp(int width, int height, bool depth = false);
 
-		void bind();
-		static void unbind();
+		DLLExports void bind();
+		DLLExports void unbind();
 
-		unsigned int getFBO();
+		DLLExports unsigned int getFBO();
 
-		~FrameBuffer();
+		DLLExports ~FrameBuffer();
 	};
 }

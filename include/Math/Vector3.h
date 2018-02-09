@@ -11,41 +11,41 @@
 #endif
 
 namespace glwl {
-	class DLLExports Vector3 {
+	class Vector3 {
 	private:
 		float values[3];
 	public:
-		Vector3() {};
-		Vector3(float f);
-		Vector3(float x, float y, float z);
+		DLLExports Vector3() {};
+		DLLExports Vector3(float f);
+		DLLExports Vector3(float x, float y, float z);
 
-		static float dot(Vector3 & lvec, Vector3 & rvec);
-		static Vector3 cross(Vector3 & lvec, Vector3 & rvec);
+		DLLExports static float dot(Vector3 & lvec, Vector3 & rvec);
+		DLLExports static Vector3 cross(Vector3 & lvec, Vector3 & rvec);
 
-		Vector3 & normalize();
+		DLLExports Vector3 & normalize();
 
-		void setX(float x);
-		void setY(float y);
-		void setZ(float z);
-		void setVec(float x, float y, float z);
+		DLLExports void setX(float x);
+		DLLExports void setY(float y);
+		DLLExports void setZ(float z);
+		DLLExports void setVec(float x, float y, float z);
 
-		float getX();
-		float getY();
-		float getZ();
-		float * getData();
-		float getLength();
-		Vector3 getNormalize();
+		DLLExports float getX();
+		DLLExports float getY();
+		DLLExports float getZ();
+		DLLExports float * getData();
+		DLLExports float getLength();
+		DLLExports Vector3 getNormalize();
 
-		Vector3 operator+();
-		Vector3 operator-();
+		DLLExports Vector3 operator+();
+		DLLExports Vector3 operator-();
 
-		Vector3 & operator+=(Vector3 & rvec);
-		Vector3 & operator-=(Vector3 & rvec);
-		Vector3 & operator*=(float f);
+		DLLExports Vector3 & operator+=(Vector3 & rvec);
+		DLLExports Vector3 & operator-=(Vector3 & rvec);
+		DLLExports Vector3 & operator*=(float f);
 
-		Vector3 operator+(Vector3 & rvec);
-		Vector3 operator-(Vector3 & rvec);
-		Vector3 operator*(float f);
+		DLLExports Vector3 operator+(Vector3 & rvec);
+		DLLExports Vector3 operator-(Vector3 & rvec);
+		DLLExports Vector3 operator*(float f);
 
 		DLLExports friend Vector3 operator*(float f, Vector3 & rvec);
 	};

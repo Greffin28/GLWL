@@ -11,22 +11,22 @@
 #endif
 
 namespace glwl {
-	class DLLExports VertexBuffer {
+	class VertexBuffer {
 	private:
 		unsigned int vbo;
 		unsigned int targetType;
 	public:
-		VertexBuffer();
+		DLLExports VertexBuffer();
 		
-		void init(unsigned int target);
+		DLLExports void init(unsigned int target);
 
-		void setData(int byteSize, const void * dataPtr, unsigned int glDrawMethod);
+		DLLExports void setData(int byteSize, const void * dataPtr, unsigned int glDrawMethod);
 
-		void bind();
-		void unbind();
+		DLLExports void bind();
+		DLLExports void unbind();
 
-		unsigned int getVBO();
+		DLLExports unsigned int getVBO();
 
-		~VertexBuffer();
+		DLLExports ~VertexBuffer();
 	};
 }

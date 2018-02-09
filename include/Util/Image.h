@@ -14,7 +14,7 @@
 #include <cstdint>
 
 namespace glwl {
-	class DLLExports Image {
+	class Image {
 	private:
 		uint8_t id_length;
 
@@ -41,11 +41,11 @@ namespace glwl {
 
 		uint8_t bytesPerPixel;
 	public:
-		void loadTGA(const char * filePath);
+		DLLExports void loadTGA(const char * filePath);
 
-		uint16_t getWidth();
-		uint16_t getHeight();
-		uint8_t getDepth();
-		uint8_t * getData();
+		DLLExports uint16_t getWidth();
+		DLLExports uint16_t getHeight();
+		DLLExports uint8_t getDepth();
+		DLLExports uint8_t * getData();
 	};
 }

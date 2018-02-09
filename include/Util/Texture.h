@@ -12,7 +12,7 @@
 
 namespace glwl {
 	class Image;
-	class DLLExports Texture {
+	class Texture {
 	private:
 		unsigned int tex;
 
@@ -21,23 +21,23 @@ namespace glwl {
 		unsigned int warpS;
 		unsigned int warpT;
 	public:
-		Texture();
+		DLLExports Texture();
 
-		void init();
+		DLLExports void init();
 
-		void blankTexture(int width, int height);
-		void setImage2D(Image image);
+		DLLExports void blankTexture(int width, int height);
+		DLLExports void setImage2D(Image image);
 
-		void bind();
-		static void unbind();
+		DLLExports void bind();
+		DLLExports void unbind();
 
-		void setMinFilter(unsigned int mode);
-		void setMagFilter(unsigned int mode);
-		void setWarpS(unsigned int mode);
-		void setWarpT(unsigned int mode);
+		DLLExports void setMinFilter(unsigned int mode);
+		DLLExports void setMagFilter(unsigned int mode);
+		DLLExports void setWarpS(unsigned int mode);
+		DLLExports void setWarpT(unsigned int mode);
 
-		unsigned int getID();
+		DLLExports unsigned int getID();
 		
-		~Texture();
+		DLLExports ~Texture();
 	};
 }

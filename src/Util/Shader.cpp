@@ -8,7 +8,7 @@
 
 namespace glwl {
 
-	void Shader::loadvf(std::string vPath, std::string fPath) {
+	void Shader::loadvf(const char * vPath, const char * fPath) {
 		std::ifstream in;
 		std::string line;
 

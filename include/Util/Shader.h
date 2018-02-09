@@ -13,22 +13,22 @@
 #include <string>
 
 namespace glwl {
-	class DLLExports Shader {
+	class Shader {
 	private:
 		unsigned int program, vShader, fShader;
 
 		std::string vSource, fSource;
 		const char *glvSource, *glfSource;
 	public:
-		void loadvf(std::string vPath, std::string fPath);
-		void compilevf();
-		void setProgramvf();
+		DLLExports void loadvf(const char * vPath, const char * fPath);
+		DLLExports void compilevf();
+		DLLExports void setProgramvf();
 
-		void useProgram();
-		static void unuseProgram();
+		DLLExports void useProgram();
+		DLLExports void unuseProgram();
 
-		unsigned int getProgram();
+		DLLExports unsigned int getProgram();
 
-		~Shader();
+		DLLExports ~Shader();
 	};
 }
