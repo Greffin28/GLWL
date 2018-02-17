@@ -78,18 +78,6 @@ namespace glwl {
 		return result;
 	}
 
-	Vector4 Vector4::operator+(Vector4 & rvec) {
-		Vector4 result = *this;
-
-		return (result += rvec);
-	}
-
-	Vector4 Vector4::operator-(Vector4 & rvec) {
-		Vector4 result = *this;
-
-		return (result -= rvec);
-	}
-
 	Vector4 & Vector4::operator+=(Vector4 & rvec) {
 		for (int i = 0; i < 4; ++i) {
 			values[i] += rvec.values[i];
@@ -104,6 +92,18 @@ namespace glwl {
 		}
 
 		return *this;
+	}
+
+	Vector4 Vector4::operator+(Vector4 & rvec) {
+		Vector4 result = *this;
+
+		return (result += rvec);
+	}
+
+	Vector4 Vector4::operator-(Vector4 & rvec) {
+		Vector4 result = *this;
+
+		return (result -= rvec);
 	}
 
 }

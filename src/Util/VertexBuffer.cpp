@@ -8,6 +8,10 @@ namespace glwl {
 		
 	}
 
+	VertexBuffer::~VertexBuffer() {
+		glDeleteBuffers(1, &vbo);
+	}
+
 	void VertexBuffer::init(unsigned int target) {
 		glGenBuffers(1, &vbo);
 		targetType = target;
@@ -27,10 +31,6 @@ namespace glwl {
 
 	unsigned int VertexBuffer::getVBO() {
 		return vbo;
-	}
-
-	VertexBuffer::~VertexBuffer() {
-		glDeleteBuffers(1, &vbo);
 	}
 
 }

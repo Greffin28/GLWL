@@ -12,8 +12,6 @@
 
 namespace glwl {
 	class Vector4 {
-	private:
-		float values[4];
 	public:
 		DLLExports Vector4() {};
 		DLLExports Vector4(float f);
@@ -36,10 +34,12 @@ namespace glwl {
 		DLLExports Vector4 operator+();
 		DLLExports Vector4 operator-();
 
-		DLLExports Vector4 operator+(Vector4 & rvec);
-		DLLExports Vector4 operator-(Vector4 & rvec);
-
 		DLLExports Vector4 & operator+=(Vector4 & rvec);
 		DLLExports Vector4 & operator-=(Vector4 & rvec);
+
+		DLLExports Vector4 operator+(Vector4 & rvec);
+		DLLExports Vector4 operator-(Vector4 & rvec);
+	private:
+		float values[4];
 	};
 }

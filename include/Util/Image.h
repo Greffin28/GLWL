@@ -15,6 +15,13 @@
 
 namespace glwl {
 	class Image {
+	public:
+		DLLExports void loadTGA(const char * filePath);
+
+		DLLExports uint16_t getWidth();
+		DLLExports uint16_t getHeight();
+		DLLExports uint8_t getDepth();
+		DLLExports uint8_t * getData();
 	private:
 		uint8_t id_length;
 
@@ -40,12 +47,5 @@ namespace glwl {
 		std::vector<uint8_t> image_data;
 
 		uint8_t bytesPerPixel;
-	public:
-		DLLExports void loadTGA(const char * filePath);
-
-		DLLExports uint16_t getWidth();
-		DLLExports uint16_t getHeight();
-		DLLExports uint8_t getDepth();
-		DLLExports uint8_t * getData();
 	};
 }

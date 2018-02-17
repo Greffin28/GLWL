@@ -12,8 +12,6 @@
 
 namespace glwl {
 	class Vector3 {
-	private:
-		float values[3];
 	public:
 		DLLExports Vector3() {};
 		DLLExports Vector3(float f);
@@ -48,6 +46,8 @@ namespace glwl {
 		DLLExports Vector3 operator*(float f);
 
 		DLLExports friend Vector3 operator*(float f, Vector3 & rvec);
+	private:
+		float values[3];
 	};
 
 	DLLExports Vector3 operator*(float f, Vector3 & rvec);

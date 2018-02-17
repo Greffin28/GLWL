@@ -13,10 +13,9 @@
 namespace glwl {
 	class Shader;
 	class VertexArray {
-	private:
-		unsigned int vao;
 	public:
 		DLLExports VertexArray();
+		DLLExports ~VertexArray();
 		
 		DLLExports void init();
 
@@ -26,7 +25,7 @@ namespace glwl {
 		DLLExports void unbind();
 		
 		DLLExports unsigned int getVAO();
-		
-		DLLExports ~VertexArray();
+	private:
+		unsigned int vao;
 	};
 }

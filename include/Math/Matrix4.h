@@ -15,8 +15,6 @@
 namespace glwl {
 	class Vector4;
 	class Matrix4 {
-	private:
-		float values[16];
 	public:
 		DLLExports Matrix4();
 		DLLExports Matrix4(float * values);
@@ -55,6 +53,8 @@ namespace glwl {
 		DLLExports Vector4 operator*(Vector4 & rvec);
 
 		DLLExports friend Matrix4 operator*(float value, Matrix4 & rmat);
+	private:
+		float values[16];
 	};
 
 	DLLExports Matrix4 operator*(float value, Matrix4 & rmat);

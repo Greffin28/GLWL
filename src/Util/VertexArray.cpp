@@ -10,6 +10,10 @@ namespace glwl {
 		
 	}
 
+	VertexArray::~VertexArray() {
+		glDeleteVertexArrays(1, &vao);
+	}
+
 	void VertexArray::init() {
 		glGenVertexArrays(1, &vao);
 	}
@@ -30,10 +34,6 @@ namespace glwl {
 
 	unsigned int VertexArray::getVAO() {
 		return vao;
-	}
-
-	VertexArray::~VertexArray() {
-		glDeleteVertexArrays(1, &vao);
 	}
 
 }

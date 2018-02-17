@@ -8,6 +8,17 @@
 
 namespace glwl {
 
+	Shader::~Shader() {
+		unuseProgram();
+		glDetachShader(program, vShader);
+		glDetachShader(program, fShader);
+
+		glDeleteShader(vShader);
+		glDeleteShader(fShader);
+
+		glDeleteProgram(program);
+	}
+
 	void Shader::loadvf(const char * vPath, const char * fPath) {
 		std::ifstream in;
 		std::string line;
@@ -81,17 +92,6 @@ namespace glwl {
 
 	unsigned int Shader::getProgram() {
 		return program;
-	}
-
-	Shader::~Shader() {
-		unuseProgram();
-		glDetachShader(program, vShader);
-		glDetachShader(program, fShader);
-
-		glDeleteShader(vShader);
-		glDeleteShader(fShader);
-
-		glDeleteProgram(program);
 	}
 
 }

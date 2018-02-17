@@ -9,6 +9,10 @@ namespace glwl {
 		
 	}
 
+	Texture::~Texture() {
+		glDeleteTextures(1, &tex);
+	}
+
 	void Texture::init() {
 		glGenTextures(1, &tex);
 
@@ -78,10 +82,6 @@ namespace glwl {
 
 	unsigned int Texture::getID() {
 		return tex;
-	}
-
-	Texture::~Texture() {
-		glDeleteTextures(1, &tex);
 	}
 
 }

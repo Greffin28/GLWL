@@ -14,12 +14,9 @@
 
 namespace glwl {
 	class FrameBuffer {
-	private:
-		unsigned int fbo;
-		Texture tex;
-		unsigned int rbo;
 	public:
 		DLLExports FrameBuffer();
+		DLLExports ~FrameBuffer();
 
 		DLLExports void init();
 
@@ -29,7 +26,9 @@ namespace glwl {
 		DLLExports void unbind();
 
 		DLLExports unsigned int getFBO();
-
-		DLLExports ~FrameBuffer();
+	private:
+		unsigned int fbo;
+		Texture tex;
+		unsigned int rbo;
 	};
 }

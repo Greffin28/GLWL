@@ -16,9 +16,6 @@
 namespace glwl {
 	class Matrix4;
 	class Quat {
-	private:
-		float scalar;
-		Vector3 vector;
 	public:
 		DLLExports Quat() {};
 		DLLExports Quat(float scalar, Vector3 & vector);
@@ -45,5 +42,8 @@ namespace glwl {
 		DLLExports Quat operator+(Quat & rquat);
 		DLLExports Quat operator-(Quat & rquat);
 		DLLExports Quat operator*(Quat & rquat);
+	private:
+		float scalar;
+		Vector3 vector;
 	};
 }

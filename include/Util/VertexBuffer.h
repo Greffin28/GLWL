@@ -12,11 +12,9 @@
 
 namespace glwl {
 	class VertexBuffer {
-	private:
-		unsigned int vbo;
-		unsigned int targetType;
 	public:
 		DLLExports VertexBuffer();
+		DLLExports ~VertexBuffer();
 		
 		DLLExports void init(unsigned int target);
 
@@ -26,7 +24,8 @@ namespace glwl {
 		DLLExports void unbind();
 
 		DLLExports unsigned int getVBO();
-
-		DLLExports ~VertexBuffer();
+	private:
+		unsigned int vbo;
+		unsigned int targetType;
 	};
 }

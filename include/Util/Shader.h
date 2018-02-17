@@ -14,12 +14,9 @@
 
 namespace glwl {
 	class Shader {
-	private:
-		unsigned int program, vShader, fShader;
-
-		std::string vSource, fSource;
-		const char *glvSource, *glfSource;
 	public:
+		DLLExports ~Shader();
+
 		DLLExports void loadvf(const char * vPath, const char * fPath);
 		DLLExports void compilevf();
 		DLLExports void setProgramvf();
@@ -28,7 +25,10 @@ namespace glwl {
 		DLLExports void unuseProgram();
 
 		DLLExports unsigned int getProgram();
+	private:
+		unsigned int program, vShader, fShader;
 
-		DLLExports ~Shader();
+		std::string vSource, fSource;
+		const char *glvSource, *glfSource;
 	};
 }

@@ -13,15 +13,9 @@
 namespace glwl {
 	class Image;
 	class Texture {
-	private:
-		unsigned int tex;
-
-		unsigned int minFilter;
-		unsigned int magFilter;
-		unsigned int warpS;
-		unsigned int warpT;
 	public:
 		DLLExports Texture();
+		DLLExports ~Texture();
 
 		DLLExports void init();
 
@@ -37,7 +31,12 @@ namespace glwl {
 		DLLExports void setWarpT(unsigned int mode);
 
 		DLLExports unsigned int getID();
-		
-		DLLExports ~Texture();
+	private:
+		unsigned int tex;
+
+		unsigned int minFilter;
+		unsigned int magFilter;
+		unsigned int warpS;
+		unsigned int warpT;
 	};
 }

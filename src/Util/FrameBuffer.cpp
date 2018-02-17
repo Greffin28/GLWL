@@ -10,6 +10,11 @@ namespace glwl {
 		
 	}
 
+	FrameBuffer::~FrameBuffer() {
+		glDeleteRenderbuffers(1, &rbo);
+		glDeleteFramebuffers(1, &fbo);
+	}
+
 	void FrameBuffer::init() {
 		glGenFramebuffers(1, &fbo);
 	}
@@ -38,11 +43,6 @@ namespace glwl {
 
 	unsigned int FrameBuffer::getFBO() {
 		return fbo;
-	}
-
-	FrameBuffer::~FrameBuffer() {
-		glDeleteRenderbuffers(1, &rbo);
-		glDeleteFramebuffers(1, &fbo);
 	}
 
 }
