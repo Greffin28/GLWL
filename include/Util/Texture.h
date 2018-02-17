@@ -20,7 +20,7 @@ namespace glwl {
 		DLLExports void init();
 
 		DLLExports void blankTexture(int width, int height);
-		DLLExports void setImage2D(Image image);
+		DLLExports void setImage2D(const Image & image);
 
 		DLLExports void bind();
 		DLLExports void unbind();
@@ -30,7 +30,7 @@ namespace glwl {
 		DLLExports void setWarpS(unsigned int mode);
 		DLLExports void setWarpT(unsigned int mode);
 
-		DLLExports unsigned int getID();
+		DLLExports unsigned int getID() const;
 	private:
 		unsigned int tex;
 

@@ -6,11 +6,11 @@
 
 namespace glwl {
 
-	Quat::Quat(float scalar, Vector3 & vector) : scalar(scalar), vector(vector) {}
+	Quat::Quat(float scalar, const Vector3 & vector) : scalar(scalar), vector(vector) {}
 
 	Quat::Quat(float scalar, float x, float y, float z) : Quat(scalar, Vector3(x, y, z)) {}
 
-	Quat::Quat(Vector3 & axis, float angle) {
+	Quat::Quat(const Vector3 & axis, float angle) {
 		Vector3 norm = axis.getNormalize();
 		angle *= PI / 180;
 
@@ -22,7 +22,7 @@ namespace glwl {
 		);
 	}
 
-	Quat::Quat(Vector3 & angles) {
+	Quat::Quat(const Vector3 & angles) {
 		Quat x(Vector3(1, 0, 0), angles.getX());
 		Quat y(Vector3(0, 1, 0), angles.getY());
 		Quat z(Vector3(0, 0, 1), angles.getZ());
@@ -34,7 +34,7 @@ namespace glwl {
 		this->scalar = scalar;
 	}
 
-	void Quat::setVector(Vector3 & vector) {
+	void Quat::setVector(const Vector3 & vector) {
 		this->vector = vector;
 	}
 
@@ -42,19 +42,19 @@ namespace glwl {
 		setVector(Vector3(x, y, z));
 	}
 
-	float Quat::getScalar() {
+	float Quat::getScalar() const {
 		return scalar;
 	}
 
-	Vector3 Quat::getVector() {
+	Vector3 Quat::getVector() const {
 		return vector;
 	}
 
-	Quat Quat::getStar() {
+	Quat Quat::getStar() const {
 		return Quat(scalar, -vector);
 	}
 
-	Matrix4 Quat::getMatrix() {
+	Matrix4 Quat::getMatrix() const {
 		float aa = scalar * scalar;
 		float bb = vector.getX() * vector.getX();
 		float cc = vector.getY() * vector.getY();
@@ -77,49 +77,49 @@ namespace glwl {
 		return Matrix4(values);
 	}
 
-	Quat Quat::operator+() {
+	Quat Quat::operator+() const {
 		return *this;
 	}
 
-	Quat Quat::operator-() {
+	Quat Quat::operator-() const {
 		return Quat(-scalar, -vector);
 	}
 
-	Quat & Quat::operator+=(Quat & rquat) {
+	Quat & Quat::operator+=(const Quat & rquat) {
 		scalar += rquat.scalar;
 		vector += rquat.vector;
 		return *this;
 	}
 
-	Quat & Quat::operator-=(Quat & rquat) {
+	Quat & Quat::operator-=(const Quat & rquat) {
 		scalar -= rquat.scalar;
 		vector -= rquat.vector;
 		return *this;
 	}
 
-	Quat & Quat::operator*=(Quat & rquat) {
+	Quat & Quat::operator*=(const Quat & rquat) {
 		return (*this = Quat(
 			scalar * rquat.scalar - Vector3::dot(vector, rquat.vector),
 			scalar * rquat.vector + rquat.scalar * vector + Vector3::cross(vector, rquat.vector)
 		));
 	}
 
-	Quat Quat::operator+(Quat & rquat) {
+	Quat Quat::operator+(const Quat & rquat) const {
 		Quat result = *this;
 
-		return (*this += rquat);
+		return (result += rquat);
 	}
 
-	Quat Quat::operator-(Quat & rquat) {
+	Quat Quat::operator-(const Quat & rquat) const {
 		Quat result = *this;
 
-		return (*this -= rquat);
+		return (result -= rquat);
 	}
 
-	Quat Quat::operator*(Quat & rquat) {
+	Quat Quat::operator*(const Quat & rquat) const {
 		Quat result = *this;
 
-		return (*this *= rquat);
+		return (result *= rquat);
 	}
 
 }

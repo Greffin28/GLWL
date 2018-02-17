@@ -41,7 +41,7 @@ namespace glwl {
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 
-	unsigned int FrameBuffer::getFBO() {
+	unsigned int FrameBuffer::getFBO() const {
 		return fbo;
 	}
 

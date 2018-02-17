@@ -23,7 +23,7 @@ namespace glwl {
 		DLLExports void bind();
 		DLLExports void unbind();
 
-		DLLExports unsigned int getVBO();
+		DLLExports unsigned int getVBO() const;
 	private:
 		unsigned int vbo;
 		unsigned int targetType;

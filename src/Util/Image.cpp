@@ -90,19 +90,19 @@ namespace glwl {
 		}
 	}
 
-	uint16_t Image::getWidth() {
+	uint16_t Image::getWidth() const {
 		return image_width;
 	}
 
-	uint16_t Image::getHeight() {
+	uint16_t Image::getHeight() const {
 		return image_height;
 	}
 
-	uint8_t Image::getDepth() {
+	uint8_t Image::getDepth() const {
 		return pixel_depth;
 	}
 
-	uint8_t * Image::getData() {
+	const uint8_t * Image::getData() const {
 		return image_data.data();
 	}
 

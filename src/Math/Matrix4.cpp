@@ -152,31 +152,31 @@ namespace glwl {
 		}
 	}
 
-	float Matrix4::getValue(int i) {
+	float Matrix4::getValue(int i) const {
 		if (i < 0 || i >= 16) return 0;
 		return values[i];
 	}
 
-	float Matrix4::getValue(int x, int y) {
+	float Matrix4::getValue(int x, int y) const {
 		if (x < 0 || x >= 4 || y < 0 || y >= 4) return 0;
 		return values[x + y * 4];
 	}
 
-	float * Matrix4::getData() {
+	const float * Matrix4::getData() const {
 		return values;
 	}
 
-	Matrix4 Matrix4::getTranspose() {
+	Matrix4 Matrix4::getTranspose() const {
 		Matrix4 mat = *this;
 
 		return mat.transpose();
 	}
 
-	Matrix4 Matrix4::operator+() {
+	Matrix4 Matrix4::operator+() const {
 		return *this;
 	}
 
-	Matrix4 Matrix4::operator-() {
+	Matrix4 Matrix4::operator-() const {
 		Matrix4 result = *this;
 		for (int i = 0; i < 16; ++i) {
 			result.values[i] = -result.values[i];
@@ -184,31 +184,7 @@ namespace glwl {
 		return result;
 	}
 
-	Matrix4 Matrix4::operator+(Matrix4 & rmat) {
-		Matrix4 result = *this;
-
-		return (result += rmat);
-	}
-
-	Matrix4 Matrix4::operator-(Matrix4 & rmat) {
-		Matrix4 result = *this;
-
-		return (result -= rmat);
-	}
-
-	Matrix4 Matrix4::operator*(Matrix4 & rmat) {
-		Matrix4 result = *this;
-
-		return (result *= rmat);
-	}
-
-	Matrix4 Matrix4::operator*(float value) {
-		Matrix4 result = *this;
-
-		return (result *= value);
-	}
-
-	Matrix4 & Matrix4::operator+=(Matrix4 & rmat) {
+	Matrix4 & Matrix4::operator+=(const Matrix4 & rmat) {
 		for (int i = 0; i < 16; ++i) {
 			values[i] += rmat.values[i];
 		}
@@ -216,7 +192,7 @@ namespace glwl {
 		return *this;
 	}
 
-	Matrix4 & Matrix4::operator-=(Matrix4 & rmat) {
+	Matrix4 & Matrix4::operator-=(const Matrix4 & rmat) {
 		for (int i = 0; i < 16; ++i) {
 			values[i] -= rmat.values[i];
 		}
@@ -224,17 +200,17 @@ namespace glwl {
 		return *this;
 	}
 
-	Matrix4 & Matrix4::operator*=(Matrix4 & rmat) {
+	Matrix4 & Matrix4::operator*=(const Matrix4 & rmat) {
 		Matrix4 temp = *this;
 		/*for (int y = 0; y < 4; ++y) {
-			for (int x = 0; x < 4; ++x) {
-				values[x + y * 4] = temp.values[x + 0 * 4] * rmat.values[0 + y * 4] +
-					temp.values[x + 1 * 4] * rmat.values[1 + y * 4] +
-					temp.values[x + 2 * 4] * rmat.values[2 + y * 4] +
-					temp.values[x + 3 * 4] * rmat.values[3 + y * 4];
-			}
+		for (int x = 0; x < 4; ++x) {
+		values[x + y * 4] = temp.values[x + 0 * 4] * rmat.values[0 + y * 4] +
+		temp.values[x + 1 * 4] * rmat.values[1 + y * 4] +
+		temp.values[x + 2 * 4] * rmat.values[2 + y * 4] +
+		temp.values[x + 3 * 4] * rmat.values[3 + y * 4];
+		}
 		}*/
-		
+
 		for (int y = 0; y < 4; ++y) {
 			for (int x = 0; x < 4; ++x) {
 				float val = 0;
@@ -256,24 +232,45 @@ namespace glwl {
 		return *this;
 	}
 
-	Vector4 Matrix4::operator*(Vector4 & rvec) {
-		Vector4 result;
+	Matrix4 Matrix4::operator+(const Matrix4 & rmat) const {
+		Matrix4 result = *this;
 
-		float * rptr = result.getData();
-		float * vptr = rvec.getData();
+		return (result += rmat);
+	}
+
+	Matrix4 Matrix4::operator-(const Matrix4 & rmat) const {
+		Matrix4 result = *this;
+
+		return (result -= rmat);
+	}
+
+	Matrix4 Matrix4::operator*(const Matrix4 & rmat) const {
+		Matrix4 result = *this;
+
+		return (result *= rmat);
+	}
+
+	Matrix4 Matrix4::operator*(float value) const {
+		Matrix4 result = *this;
+
+		return (result *= value);
+	}
+
+	Vector4 Matrix4::operator*(const Vector4 & rvec) const {
+		Vector4 result;
 
 		for (int i = 0; i < 4; ++i) {
 			float val = 0;
 			for (int j = 0; j < 4; ++j) {
-				val += values[i + j * 4] * *(vptr + j);
+				val += values[i + j * 4] * rvec.getData()[j];
 			}
-			*(rptr + i) = val;
+			result.setValue(i, val);
 		}
 
 		return result;
 	}
 
-	Matrix4 operator*(float value, Matrix4 & rmat) {
+	Matrix4 operator*(float value, const Matrix4 & rmat) {
 		Matrix4 result = rmat;
 
 		return (result *= value);

@@ -34,7 +34,7 @@ namespace glwl {
 		unbind();
 	}
 
-	void Texture::setImage2D(Image image) {
+	void Texture::setImage2D(const Image & image) {
 		bind();
 
 		GLenum internalFormat = GL_RGB;
@@ -80,7 +80,7 @@ namespace glwl {
 		warpT = mode;
 	}
 
-	unsigned int Texture::getID() {
+	unsigned int Texture::getID() const {
 		return tex;
 	}
 

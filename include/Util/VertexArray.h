@@ -19,12 +19,12 @@ namespace glwl {
 		
 		DLLExports void init();
 
-		DLLExports void setVertexAttrib(Shader & shader, const char * varName, int count, unsigned int glVarType, int stride, int offset);
+		DLLExports void setVertexAttrib(const Shader & shader, const char * varName, int count, unsigned int glVarType, int stride, int offset);
 
 		DLLExports void bind();
 		DLLExports void unbind();
 		
-		DLLExports unsigned int getVAO();
+		DLLExports unsigned int getVAO() const;
 	private:
 		unsigned int vao;
 	};

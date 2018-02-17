@@ -33,42 +33,46 @@ namespace glwl {
 		values[3] = w;
 	}
 
+	void Vector4::setValue(int i, float val) {
+		values[i] = val;
+	}
+
 	void Vector4::setVec(float x, float y, float z, float w) {
 		*this = Vector4(x, y, z, w);
 	}
 
-	float Vector4::getX() {
+	float Vector4::getX() const {
 		return values[0];
 	}
 
-	float Vector4::getY() {
+	float Vector4::getY() const {
 		return values[1];
 	}
 
-	float Vector4::getZ() {
+	float Vector4::getZ() const {
 		return values[2];
 	}
 
-	float Vector4::getW() {
+	float Vector4::getW() const {
 		return values[3];
 	}
 
-	float * Vector4::getData() {
+	const float * Vector4::getData() const {
 		return values;
 	}
 
-	float Vector4::dot(Vector4 & lvec, Vector4 & rvec) {
+	float Vector4::dot(const Vector4 & lvec, const Vector4 & rvec) {
 		return lvec.values[0] * rvec.values[0] +
 			lvec.values[1] * rvec.values[1] +
 			lvec.values[2] * rvec.values[2] +
 			lvec.values[3] * rvec.values[3];
 	}
 
-	Vector4 Vector4::operator+() {
+	Vector4 Vector4::operator+() const {
 		return *this;
 	}
 
-	Vector4 Vector4::operator-() {
+	Vector4 Vector4::operator-() const {
 		Vector4 result = *this;
 
 		for (int i = 0; i < 4; ++i) {
@@ -78,7 +82,7 @@ namespace glwl {
 		return result;
 	}
 
-	Vector4 & Vector4::operator+=(Vector4 & rvec) {
+	Vector4 & Vector4::operator+=(const Vector4 & rvec) {
 		for (int i = 0; i < 4; ++i) {
 			values[i] += rvec.values[i];
 		}
@@ -86,7 +90,7 @@ namespace glwl {
 		return *this;
 	}
 
-	Vector4 & Vector4::operator-=(Vector4 & rvec) {
+	Vector4 & Vector4::operator-=(const Vector4 & rvec) {
 		for (int i = 0; i < 4; ++i) {
 			values[i] -= rvec.values[i];
 		}
@@ -94,13 +98,13 @@ namespace glwl {
 		return *this;
 	}
 
-	Vector4 Vector4::operator+(Vector4 & rvec) {
+	Vector4 Vector4::operator+(const Vector4 & rvec) const {
 		Vector4 result = *this;
 
 		return (result += rvec);
 	}
 
-	Vector4 Vector4::operator-(Vector4 & rvec) {
+	Vector4 Vector4::operator-(const Vector4 & rvec) const {
 		Vector4 result = *this;
 
 		return (result -= rvec);

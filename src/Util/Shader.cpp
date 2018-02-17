@@ -90,7 +90,7 @@ namespace glwl {
 		glUseProgram(0);
 	}
 
-	unsigned int Shader::getProgram() {
+	unsigned int Shader::getProgram() const {
 		return program;
 	}
 

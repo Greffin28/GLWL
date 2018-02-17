@@ -25,7 +25,7 @@ namespace glwl {
 		DLLExports void bind();
 		DLLExports void unbind();
 
-		DLLExports unsigned int getFBO();
+		DLLExports unsigned int getFBO() const;
 	private:
 		unsigned int fbo;
 		Texture tex;

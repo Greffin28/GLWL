@@ -18,10 +18,10 @@ namespace glwl {
 	public:
 		DLLExports void loadTGA(const char * filePath);
 
-		DLLExports uint16_t getWidth();
-		DLLExports uint16_t getHeight();
-		DLLExports uint8_t getDepth();
-		DLLExports uint8_t * getData();
+		DLLExports uint16_t getWidth() const;
+		DLLExports uint16_t getHeight() const;
+		DLLExports uint8_t getDepth() const;
+		DLLExports const uint8_t * getData() const;
 	private:
 		uint8_t id_length;
 

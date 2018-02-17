@@ -21,24 +21,25 @@ namespace glwl {
 		DLLExports void setY(float y);
 		DLLExports void setZ(float z);
 		DLLExports void setW(float w);
+		DLLExports void setValue(int i, float val);
 		DLLExports void setVec(float x, float y, float z, float w = 1.0f);
 
-		DLLExports float getX();
-		DLLExports float getY();
-		DLLExports float getZ();
-		DLLExports float getW();
-		DLLExports float * getData();
+		DLLExports float getX() const;
+		DLLExports float getY() const;
+		DLLExports float getZ() const;
+		DLLExports float getW() const;
+		DLLExports const float * getData() const;
 
-		DLLExports static float dot(Vector4 & lvec, Vector4 & rvec);
+		DLLExports static float dot(const Vector4 & lvec, const Vector4 & rvec);
 
-		DLLExports Vector4 operator+();
-		DLLExports Vector4 operator-();
+		DLLExports Vector4 operator+() const;
+		DLLExports Vector4 operator-() const;
 
-		DLLExports Vector4 & operator+=(Vector4 & rvec);
-		DLLExports Vector4 & operator-=(Vector4 & rvec);
+		DLLExports Vector4 & operator+=(const Vector4 & rvec);
+		DLLExports Vector4 & operator-=(const Vector4 & rvec);
 
-		DLLExports Vector4 operator+(Vector4 & rvec);
-		DLLExports Vector4 operator-(Vector4 & rvec);
+		DLLExports Vector4 operator+(const Vector4 & rvec) const;
+		DLLExports Vector4 operator-(const Vector4 & rvec) const;
 	private:
 		float values[4];
 	};

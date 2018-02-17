@@ -18,7 +18,7 @@ namespace glwl {
 		glGenVertexArrays(1, &vao);
 	}
 
-	void VertexArray::setVertexAttrib(Shader & shader, const char * varName, int count, unsigned int glVarType, int stride, int offset) {
+	void VertexArray::setVertexAttrib(const Shader & shader, const char * varName, int count, unsigned int glVarType, int stride, int offset) {
 		int varLoc = glGetAttribLocation(shader.getProgram(), varName);
 		glVertexAttribPointer(varLoc, count, glVarType, GL_FALSE, stride, (void*)offset);
 		glEnableVertexAttribArray(varLoc);
@@ -32,7 +32,7 @@ namespace glwl {
 		glBindVertexArray(0);
 	}
 
-	unsigned int VertexArray::getVAO() {
+	unsigned int VertexArray::getVAO() const {
 		return vao;
 	}
 

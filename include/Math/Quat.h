@@ -18,30 +18,30 @@ namespace glwl {
 	class Quat {
 	public:
 		DLLExports Quat() {};
-		DLLExports Quat(float scalar, Vector3 & vector);
+		DLLExports Quat(float scalar, const Vector3 & vector);
 		DLLExports Quat(float scalar, float x, float y, float z);
-		DLLExports Quat(Vector3 & axis, float angle);
-		DLLExports Quat(Vector3 & angles);
+		DLLExports Quat(const Vector3 & axis, float angle);
+		DLLExports Quat(const Vector3 & angles);
 
 		DLLExports void setScalar(float scalar);
-		DLLExports void setVector(Vector3 & vector);
+		DLLExports void setVector(const Vector3 & vector);
 		DLLExports void setVector(float x, float y, float z);
 
-		DLLExports float getScalar();
-		DLLExports Vector3 getVector();
-		DLLExports Quat getStar();
-		DLLExports Matrix4 getMatrix();
+		DLLExports float getScalar() const;
+		DLLExports Vector3 getVector() const;
+		DLLExports Quat getStar() const;
+		DLLExports Matrix4 getMatrix() const;
 
-		DLLExports Quat operator+();
-		DLLExports Quat operator-();
+		DLLExports Quat operator+() const;
+		DLLExports Quat operator-() const;
 
-		DLLExports Quat & operator+=(Quat & rquat);
-		DLLExports Quat & operator-=(Quat & rquat);
-		DLLExports Quat & operator*=(Quat & rquat);
+		DLLExports Quat & operator+=(const Quat & rquat);
+		DLLExports Quat & operator-=(const Quat & rquat);
+		DLLExports Quat & operator*=(const Quat & rquat);
 
-		DLLExports Quat operator+(Quat & rquat);
-		DLLExports Quat operator-(Quat & rquat);
-		DLLExports Quat operator*(Quat & rquat);
+		DLLExports Quat operator+(const Quat & rquat) const;
+		DLLExports Quat operator-(const Quat & rquat) const;
+		DLLExports Quat operator*(const Quat & rquat) const;
 	private:
 		float scalar;
 		Vector3 vector;

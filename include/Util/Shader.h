@@ -24,7 +24,7 @@ namespace glwl {
 		DLLExports void useProgram();
 		DLLExports void unuseProgram();
 
-		DLLExports unsigned int getProgram();
+		DLLExports unsigned int getProgram() const;
 	private:
 		unsigned int program, vShader, fShader;
 

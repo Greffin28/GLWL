@@ -29,7 +29,7 @@ namespace glwl {
 		glBindBuffer(targetType, 0);
 	}
 
-	unsigned int VertexBuffer::getVBO() {
+	unsigned int VertexBuffer::getVBO() const {
 		return vbo;
 	}
 

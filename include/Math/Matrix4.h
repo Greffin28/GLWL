@@ -32,31 +32,31 @@ namespace glwl {
 		DLLExports void setValue(int x, int y, float val);
 		DLLExports void setValues(float * values);
 
-		DLLExports float getValue(int i);
-		DLLExports float getValue(int x, int y);
-		DLLExports float * getData();
-		DLLExports Matrix4 getTranspose();
+		DLLExports float getValue(int i) const;
+		DLLExports float getValue(int x, int y) const;
+		DLLExports const float * getData() const;
+		DLLExports Matrix4 getTranspose() const;
 
-		DLLExports Matrix4 operator+();
-		DLLExports Matrix4 operator-();
+		DLLExports Matrix4 operator+() const;
+		DLLExports Matrix4 operator-() const;
 
-		DLLExports Matrix4 operator+(Matrix4 & rmat);
-		DLLExports Matrix4 operator-(Matrix4 & rmat);
-		DLLExports Matrix4 operator*(Matrix4 & rmat);
-		DLLExports Matrix4 operator*(float value);
-
-		DLLExports Matrix4 & operator+=(Matrix4 & rmat);
-		DLLExports Matrix4 & operator-=(Matrix4 & rmat);
-		DLLExports Matrix4 & operator*=(Matrix4 & rmat);
+		DLLExports Matrix4 & operator+=(const Matrix4 & rmat);
+		DLLExports Matrix4 & operator-=(const Matrix4 & rmat);
+		DLLExports Matrix4 & operator*=(const Matrix4 & rmat);
 		DLLExports Matrix4 & operator*=(float value);
 
-		DLLExports Vector4 operator*(Vector4 & rvec);
+		DLLExports Matrix4 operator+(const Matrix4 & rmat) const;
+		DLLExports Matrix4 operator-(const Matrix4 & rmat) const;
+		DLLExports Matrix4 operator*(const Matrix4 & rmat) const;
+		DLLExports Matrix4 operator*(float value) const;
 
-		DLLExports friend Matrix4 operator*(float value, Matrix4 & rmat);
+		DLLExports Vector4 operator*(const Vector4 & rvec) const;
+
+		DLLExports friend Matrix4 operator*(float value, const Matrix4 & rmat);
 	private:
 		float values[16];
 	};
 
-	DLLExports Matrix4 operator*(float value, Matrix4 & rmat);
+	DLLExports Matrix4 operator*(float value, const Matrix4 & rmat);
 
 }
