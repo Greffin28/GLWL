@@ -259,15 +259,12 @@ namespace glwl {
 	Vector4 Matrix4::operator*(Vector4 & rvec) {
 		Vector4 result;
 
-		float * rptr = result.getData();
-		float * vptr = rvec.getData();
-
 		for (int i = 0; i < 4; ++i) {
-			float val = 0;
+			float value = 0;
 			for (int j = 0; j < 4; ++j) {
-				val += values[i + j * 4] * *(vptr + j);
+				value = values[i + j * 4] * rvec.getData()[j];
 			}
-			*(rptr + i) = val;
+			result.getData()[i] = value;
 		}
 
 		return result;
